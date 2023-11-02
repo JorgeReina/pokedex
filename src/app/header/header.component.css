@@ -1,0 +1,14 @@
+.header {
+  background-color: red;
+  width: 100vw;
+  padding-left: 8px;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  top: -21px;
+}
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  text-align: center;
+}
