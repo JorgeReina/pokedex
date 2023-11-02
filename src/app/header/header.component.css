@@ -7,8 +7,14 @@
   left: 50%;
   top: -21px;
 }
-h1 {
+/*h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
   text-align: center;
+}*/
+@font-face {
+  font-family: 'pokemon';
+  src: url(/src/assets/fonts/Pokemon\ Solid.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
