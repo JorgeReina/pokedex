@@ -9,8 +9,7 @@ export class PokemonBasicService {
 
   constructor(private http: HttpClient) { }
 
-  /*getInfo(): Observable<String> {
-    return this.getInfo('https://pokeapi.co/api/v2/pokemon/')
-    .pipe(map((respuesta: any) => respuesta.name));
-  }*/
+  public getInfo(): Observable<any> {
+    return this.http.get<any>('https://pokeapi.co/api/v2/pokemon/'); /*?offset=20&limit=151 */
+  }
 }
