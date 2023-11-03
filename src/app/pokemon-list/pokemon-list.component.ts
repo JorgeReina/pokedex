@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { PokemonBasicService } from './pokemonBasic.service';
+import { Component, OnInit } from '@angular/core';
+import { PokemonBasicService } from '../pokemon-basic.service';
 
 
 @Component({
@@ -7,17 +7,22 @@ import { PokemonBasicService } from './pokemonBasic.service';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css']
 })
+export class PokemonListComponent implements OnInit{
 
-export class PokemonListComponent {
-  
+  data: any = "";
 
-  nombre='';
-  constructor(private pokemonBasic: PokemonBasicService) {}
-  
-  cargaNombre() {
-    this.nombre = 'Cargando nombre...';
-    this.pokemonBasic.getNombre()
-    .subscribe((nuevoNombre) => (this.nombre = nuevoNombre));
-    }
-    
+  constructor(private pokemonBasicService: PokemonBasicService) {
+
+  }
+  ngOnInit(): void {
+    this.llenarData()
+  }
+
+  llenarData() {
+    this.pokemonBasicService.getInfo().subscribe( data => {
+      this.data = data;
+      console.log(this.data)
+    })
+  }
+
 }

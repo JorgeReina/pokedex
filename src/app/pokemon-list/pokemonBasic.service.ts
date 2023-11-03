@@ -9,8 +9,8 @@ export class PokemonBasicService {
 
   constructor(private http: HttpClient) { }
 
-  getNombre(): Observable<string> {
-    return this.http.get('https://api.chucknorris.io/jokes/random')
-    .pipe(map((respuesta: any) => respuesta.value));
-  }
+  /*getInfo(): Observable<String> {
+    return this.getInfo('https://pokeapi.co/api/v2/pokemon/')
+    .pipe(map((respuesta: any) => respuesta.name));
+  }*/
 }
