@@ -1,5 +1,3 @@
-<div>
-  <ul>
-    <li>{{data.results}}</li>
-  </ul>
+<div *ngFor="let item of data">
+  <p>{{item.name}}</p>
 </div>

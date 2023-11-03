@@ -10,19 +10,20 @@ import { PokemonBasicService } from '../pokemonBasic.service';
 })
 export class PokemonListComponent implements OnInit{
 
-  data: any = "";
+  data: any[] = [];
 
   constructor(private pokemonBasicService: PokemonBasicService) {
-
+    
   }
   ngOnInit(): void {
+    //this.pokemonBasicService.getInfo2();
     this.llenarData()
   }
 
   llenarData() {
-    this.pokemonBasicService.getInfo().subscribe( data => {
-      this.data = data;
-      console.log(this.data)
+    this.pokemonBasicService.getInfo().subscribe((data) => {
+      this.data = data as any[];
+      console.log(this.data);
     })
   }
 
