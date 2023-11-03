@@ -8,16 +8,12 @@ import { PokemonBasicService } from './pokemonBasic.service';
   styleUrls: ['./pokemon-list.component.css']
 })
 
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent {
   
 
   nombre='';
   constructor(private pokemonBasic: PokemonBasicService) {}
-  ngOnInit(): void {
-
-
-    throw new Error('Method not implemented.');
-  }
+  
   cargaNombre() {
     this.nombre = 'Cargando nombre...';
     this.pokemonBasic.getNombre()
