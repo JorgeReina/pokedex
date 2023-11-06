@@ -1,5 +1,6 @@
 <div *ngFor="let item of data">
   <p>{{item.id}}</p>
-  <img src="{{item.sprites.front_default}}" alt="">
+  <img src="{{item.image}}" alt="">
   <p>{{item.name | titlecase}}</p>
+  <p>{{item.types}}</p>
 </div>
