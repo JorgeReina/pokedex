@@ -19,7 +19,7 @@ export class PokemonBasicService {
       .pipe(map((response: any) => {
         return { 
           id: response.id,
-          image: response.sprites.front_default,
+          image: response.sprites.other.dream_world.front_default,
           name: response.name,
           types: response.types.map((data: any) => data.type.name)
         };
