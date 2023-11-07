@@ -1,7 +1,8 @@
 <div class="grid-layout" *ngFor="let item of data" >
-  <div  class="border">
-    <p >{{item.id.toString().padStart(3, '0')}}</p>
+  <div  class="div1">
+    <br>
+    <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
     <img class="sizeImage" src="{{item.image}}" alt="">
     <p>{{item.name | titlecase}}</p>
-    <p>{{item.types}}</p>
+    <button>{{item.types}}</button>
 </div></div>

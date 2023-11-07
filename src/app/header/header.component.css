@@ -1,20 +1,27 @@
 .header {
-  background-color: red;
-  width: 100vw;
+  background-color: rgb(118, 142, 230);
   padding-left: 8px;
   position: relative;
-  margin-left: -50vw;
-  left: 50%;
-  top: -21px;
+  border: 2px solid black;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-/*h1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
-  text-align: center;
-}*/
-/*@font-face {
-  font-family: 'pokemon';
-  src: url(/src/assets/fonts/Pokemon\ Solid.ttf) format("truetype");
-  font-weight: normal;
+@font-face {
+  font-family: 'Pokemon';
+  src: url('PokemonSolid.ttf') format('truetype');
   font-style: normal;
-}*/
+}
+
+h1{
+  text-align: center;
+  letter-spacing: 8px;
+  color: rgb(255,215,0); 
+  -webkit-text-stroke: 2px rgb(0,0,255);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+
