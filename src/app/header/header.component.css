@@ -1,12 +1,13 @@
 .header {
-  background-color: rgb(118, 142, 230);
-  padding-left: 8px;
+  background-image: linear-gradient(to right, rgb(254, 254, 135)40%, rgb(255, 255, 42)80%);
+  padding-left: 20px;
+  padding-right: 20px;
   position: relative;
-  border: 2px solid black;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2%;
 }
 @font-face {
   font-family: 'Pokemon';
@@ -22,6 +23,21 @@ h1{
   font-size: 40px;
   font-weight: bold;
 }
+
+.rotar:hover {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
+
+
 
 
 
