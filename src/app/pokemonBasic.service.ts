@@ -14,7 +14,7 @@ export class PokemonBasicService {
 
     let pokemons: Observable<Pokemon>[] = [];
 
-    for (let i = 1; i < 151; i++) {
+    for (let i = 1; i < 152; i++) {
       pokemons.push(this.http.get(`https://pokeapi.co/api/v2/pokemon/${i}/`)
       .pipe(map((response: any) => {
         return { 
