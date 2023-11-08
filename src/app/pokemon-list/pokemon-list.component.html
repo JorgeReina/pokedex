@@ -3,7 +3,7 @@
     <div class="pokemon-container">
       <br>
       <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
-      <img class="sizeImage" src="{{item.image}}" alt="">
+      <img class="sizeImage" [src]="item.image" alt="">
       <p>{{item.name | titlecase}}</p>
       <button>{{item.types}}</button>
     </div>
