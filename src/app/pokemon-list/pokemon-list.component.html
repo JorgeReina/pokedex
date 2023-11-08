@@ -1,8 +1,11 @@
-<div class="grid-layout" *ngFor="let item of data" >
-  <div  class="div1">
-    <br>
-    <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
-    <img class="sizeImage" src="{{item.image}}" alt="">
-    <p>{{item.name | titlecase}}</p>
-    <button>{{item.types}}</button>
-</div></div>
+<div class="pokemon-list-container">
+  <div class="row" *ngFor="let item of data" >
+    <div class="pokemon-container">
+      <br>
+      <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
+      <img class="sizeImage" src="{{item.image}}" alt="">
+      <p>{{item.name | titlecase}}</p>
+      <button>{{item.types}}</button>
+    </div>
+  </div>
+</div>

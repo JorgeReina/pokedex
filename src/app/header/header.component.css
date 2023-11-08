@@ -1,5 +1,5 @@
 .header {
-  background-image: linear-gradient(to right, rgb(254, 254, 135)40%, rgb(255, 255, 42)80%);
+  background-color: white;
   padding-left: 20px;
   padding-right: 20px;
   position: relative;
@@ -35,6 +35,9 @@ h1{
   to {
       transform: rotate(359deg);
   }
+}
+.backpag:hover{
+  transform: rotate(-10deg);
 }
 
 
