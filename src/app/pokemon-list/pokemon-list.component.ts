@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokemonBasicService } from '../pokemonBasic.service';
 import { Pokemon } from '../interface/pokemon';
 
@@ -26,6 +26,17 @@ export class PokemonListComponent implements OnInit{
       this.data = data as any[];
       console.log(this.data);
     })
+  }
+
+  @Input()
+  filter: any;
+
+  getData(): Pokemon[]{
+    return this.data;
+  }
+
+  getDataFiltered(): Pokemon[]{
+    return this.getData().filter((pokemons)=>pokemons.name.includes(this.filter) || pokemons.id.toString().includes(this.filter));
   }
 
 }

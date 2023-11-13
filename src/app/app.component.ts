@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokedex';
+
+  filter = ''
+
+  updateFilter(event: any){
+    this.filter = event.inputText;
+  }
 }

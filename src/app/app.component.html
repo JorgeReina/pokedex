@@ -1,5 +1,5 @@
 
-<app-header></app-header>
-<app-pokemon-list></app-pokemon-list>
+<app-header (inputTextEvent)="updateFilter($event)" ></app-header>
+<app-pokemon-list [filter]="filter" ></app-pokemon-list>
 <app-footer></app-footer>
 

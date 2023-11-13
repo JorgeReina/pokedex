@@ -1,11 +1,13 @@
 <div class="pokemon-list-container">
-  <div class="row" *ngFor="let item of data" >
+  <div class="row" *ngFor="let item of getDataFiltered()" >
     <div class="pokemon-container">
       <br>
       <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
       <img class="sizeImage" [src]="item.image" alt="">
       <p>{{item.name | titlecase}}</p>
-      <button>{{item.types}}</button>
+      <div *ngIf="item.types.length > 0">
+        <button *ngFor="let type of item.types" [attr.type]="type">{{ type }}</button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,9 +1,11 @@
+div{
+  margin: 1%;
+}
+
 .footer {
   background-color: rgb(232, 39, 39);
-  width: 100vw;
+  width: auto;
   padding-left: 2%;
-  position: bottom 0 ;
-  left: 0;
 }
 
 p {
