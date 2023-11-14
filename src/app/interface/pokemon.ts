@@ -4,5 +4,6 @@ export interface Pokemon {
   image: string,
   name: string,
   types: string[],
+  generation: string
   
 }

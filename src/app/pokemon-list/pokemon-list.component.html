@@ -1,5 +1,13 @@
+<div class="filter">
+  <button (click)="pulsado('0')" class="generationButton">Full List</button>
+  <button (click)="pulsado('1')" class="generationButton">First Generation</button>
+  <button (click)="pulsado('2')" class="generationButton">Second Generation</button>
+  <button (click)="pulsado('3')" class="generationButton">Third Generation</button>
+  <button (click)="pulsado('4')" class="generationButton">Four Generation</button>
+</div>
+
 <div>
-  <button (click)="getTypeFiltered('fire')">Fire</button>
+  <button (click)="pulsado('5')" (click)="getTypeFiltered('fire')">Fire</button>
   <button (click)="getTypeFiltered('grass')">grass</button>
   <button (click)="getTypeFiltered('water')">water</button>
   <button (click)="getTypeFiltered('poison')">poison</button>
