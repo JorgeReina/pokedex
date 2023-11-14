@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'pokedex';
 
   filter = ''
+  types= '';
 
   updateFilter(event: any){
     this.filter = event.inputText;

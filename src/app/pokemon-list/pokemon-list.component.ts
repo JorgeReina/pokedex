@@ -17,7 +17,6 @@ export class PokemonListComponent implements OnInit{
     
   }
   ngOnInit(): void {
-    //this.pokemonBasicService.getInfo2();
     this.llenarData()
   }
 
@@ -27,16 +26,19 @@ export class PokemonListComponent implements OnInit{
       console.log(this.data);
     })
   }
-
   @Input()
   filter: any;
+  types: any;
 
   getData(): Pokemon[]{
     return this.data;
   }
-
-  getDataFiltered(): Pokemon[]{
+    getDataFiltered(): Pokemon[]{
     return this.getData().filter((pokemons)=>pokemons.name.includes(this.filter) || pokemons.id.toString().includes(this.filter));
   }
 
+  getTypeFiltered(types: any): Pokemon[]{
+    this.types = types
+    return this.getData().filter((pokemons) => pokemons.types.includes(this.types));
+  }
 }
