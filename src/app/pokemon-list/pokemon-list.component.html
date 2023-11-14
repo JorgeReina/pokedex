@@ -1,15 +1,16 @@
 <div>
-  <button onclick="getTypeFiltered(['fire'])">Fire</button>
-  <button onclick="getTypeFiltered(['grass'])">grass</button>
-  <button onclick="getTypeFiltered(['water'])">water</button>
-  <button onclick="getTypeFiltered(['poison'])">poison</button>
-  <button onclick="getTypeFiltered(['flying'])">flying</button>
-  <button onclick="getTypeFiltered(['bug'])">bug</button>
-  <button onclick="getTypeFiltered(['normal'])">normal</button>
-  <button onclick="getTypeFiltered(['electric'])">electric</button>
-  <button onclick="getTypeFiltered(['ground'])">ground</button>
-  <button onclick="getTypeFiltered(['fairy'])">fairy</button>
-  <button onclick="getTypeFiltered(['fighting'])">fighting</button>
+  <button (click)="getTypeFiltered('fire')">Fire</button>
+  <button (click)="getTypeFiltered('grass')">grass</button>
+  <button (click)="getTypeFiltered('water')">water</button>
+  <button (click)="getTypeFiltered('poison')">poison</button>
+  <button (click)="getTypeFiltered('flying')">flying</button>
+  <button (click)="getTypeFiltered('bug')">bug</button>
+  <button (click)="getTypeFiltered('normal')">normal</button>
+  <button (click)="getTypeFiltered('electric')">electric</button>
+  <button (click)="getTypeFiltered('ground')">ground</button>
+  <button (click)="getTypeFiltered('fairy')">fairy</button>
+  <button (click)="getTypeFiltered('fighting')">fighting</button>
+  <button (click)="resetFilters()">Reset</button>
 </div>
 <div class="pokemon-list-container">
   <div class="row" *ngFor="let item of getDataFiltered()">
