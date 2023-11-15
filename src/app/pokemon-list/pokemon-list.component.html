@@ -6,30 +6,31 @@
   <button (click)="pulsado('4')" class="generationButton">Four Generation</button>
 </div>
 
-<!-- <div class="filter" >
-  <button class="typesButton" *ngFor="let item of getTypes()" [attr.type]="item" (click)="pulsado('5')" (click)="getTypeFiltered('{{item}}')" >{{item}}</button>
-</div> -->
+<!--
+  <div class="filter" >
+    <button class="typesButton" *ngFor="let item of getTypes()" [attr.type]="item" (click)="getNameType('{{item}}')" (click)="getTypeFiltered('{{item}}')" >{{item}}</button>
+  </div>
+-->
 
 <div class="filter">
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('fire')">Fire</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('grass')">grass</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('water')">water</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('poison')">poison</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('flying')">flying</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('bug')">bug</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('normal')">normal</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('electric')">electric</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('ground')">ground</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('fairy')">fairy</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('fighting')">fighting</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('steel')">steel</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('dark')">dark</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('ice')">ice</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('dragon')">dragon</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('ghost')">ghost</button>
-  <button class="typesButton" (click)="pulsado('5')" (click)="getTypeFiltered('rock')">rock</button>
-
-
+  <button class="typesButton"  (click)="getTypeFiltered('fire')">Fire</button>
+  <button class="typesButton"  (click)="getTypeFiltered('grass')">grass</button>
+  <button class="typesButton"  (click)="getTypeFiltered('water')">water</button>
+  <button class="typesButton"  (click)="getTypeFiltered('poison')">poison</button>
+  <button class="typesButton"  (click)="getTypeFiltered('flying')">flying</button>
+  <button class="typesButton"  (click)="getTypeFiltered('bug')">bug</button>
+  <button class="typesButton"  (click)="getTypeFiltered('normal')">normal</button>
+  <button class="typesButton"  (click)="getTypeFiltered('electric')">electric</button>
+  <button class="typesButton"  (click)="getTypeFiltered('ground')">ground</button>
+  <button class="typesButton"  (click)="getTypeFiltered('fairy')">fairy</button>
+  <button class="typesButton"  (click)="getTypeFiltered('fighting')">fighting</button>
+  <button class="typesButton"  (click)="getTypeFiltered('steel')">steel</button>
+  <button class="typesButton"  (click)="getTypeFiltered('dark')">dark</button>
+  <button class="typesButton"  (click)="getTypeFiltered('ice')">ice</button>
+  <button class="typesButton"  (click)="getTypeFiltered('dragon')">dragon</button>
+  <button class="typesButton"  (click)="getTypeFiltered('ghost')">ghost</button>
+  <button class="typesButton"  (click)="getTypeFiltered('rock')">rock</button>
+  <button class="typesButton"  (click)="getTypeFiltered('psychic')">psychic</button>
   <button class="typesButton" (click)="resetFilters()">Reset</button>
 </div>
 <div class="pokemon-list-container">
