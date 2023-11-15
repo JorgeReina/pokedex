@@ -38,7 +38,7 @@
   font-family: 'Pixelify Sans', sans-serif;
 }
 
-/*Diseño y colores de los Tipos */
+/* DISEÑO Y COLORES DE LOS TIPOS */
 
 button {
   border: 1px solid black;
@@ -60,6 +60,7 @@ button[type="Bug"] {
 
 button[type="Dragon"] {
   background-color: #7038F8; /* Dragón */
+  color: white;
 }
 
 button[type="Electric"] {
@@ -114,7 +115,38 @@ button[type="Flying"] {
   background-color: #A890F0; /* Volador */
 }
 
-/* Asta aqui diseño de tipos */
+button[type="Dark"] {
+  background-color: #333333; /* siniestro */
+  color: white; 
+}
+
+/* ASTA AQUI DISEÑO DE TIPOS */
+
+/* DISEÑO BOTONES GENERACION Y TIPOS PARA FILTRAR */
+
+.typesLetter {
+  color: white;
+}
+
+.typesButton {
+  cursor: pointer;
+}
+
+.filter {
+  margin: 2%;
+  text-align: center;
+}
+
+.generationButton:hover { /* #afafaf*/
+  cursor: pointer;
+  background-image: linear-gradient(to left, rgb(255, 255, 255)40%, rgb(247, 68, 68)80%) ;
+}
+
+.generationButton:active {
+  background-color: #6890F0;
+}
+
+/* FIN DISEÑO BOTONES GENERACION */
 
 @keyframes shakeUp {
   0% {

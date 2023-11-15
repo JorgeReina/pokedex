@@ -40,7 +40,25 @@ h1{
   transform: rotate(-10deg);
 }
 
+/* Estilos de Buscador */
 
+.searcher  {
+  text-align: center;
+}
 
+/* Estilos botones types */
 
+.types {
+  display: inline;
+  padding: 2%;
+}
 
+button[n="First Generation"] {
+  background-color: rgb(116, 116, 231);
+  border: solid 3px brown;
+  border-radius: 15px;
+}
+
+button:hover[n="First Generation"]{
+  background-color: aqua;
+}

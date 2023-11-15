@@ -18,22 +18,31 @@ export class PokemonListComponent implements OnInit{
     
   }
   ngOnInit(): void {
-    this.llenarData()
+    this.setData()
   }
 
-  llenarData() {
+  @Input()
+  filter: any;
+  types: any[] = [];
+
+  // Funcion para obtener los datos desde la Api y guardarlos en data
+  setData() {
     this.pokemonBasicService.getInfo().subscribe((data) => {
       this.data = data as any[];
       console.log(this.data);
     })
   }
-  @Input()
-  filter: any;
-  types: any[] = [];
 
+  // Mostrar data
   getData(): Pokemon[]{
     return this.data;
   }
+
+  // Mostrar Types
+  getTypes(): string[]{
+    return this.pokemonBasicService.getTypes()
+  }
+
   getTypeFiltered(type: any){
     this.types.push(type)
   }
@@ -79,21 +88,27 @@ export class PokemonListComponent implements OnInit{
   getDataFourGeneration(): Pokemon[]{
     return this.getData().filter((pokemons)=>pokemons.id > 386 && pokemons.id <= 492 && pokemons.name.includes(this.filter));
   }
-// Funcion para botones Generacion
-  pulsado(n: string) {
-    this.botonPulsado = n;
-  }
 
+  // Reseto de filtros
   resetFilters(){
     this.filter = ""
     this.types = []
   }
+
+  // Obtener nombre de los tipos desde types.json
+  getNameType(type: string){
+    this.botonPulsado = type;
+  }
+
+  // Funcion para botones Generacion
+  pulsado(n: string) {
+    this.botonPulsado = n;
+  }
+
   /*
     getDataFiltered(): Pokemon[]{
     return this.getData().filter((pokemons)=>pokemons.name.includes(this.filter) || pokemons.id.toString().includes(this.filter));
   }*/
-
-
 
 }
 

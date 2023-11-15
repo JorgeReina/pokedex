@@ -8,7 +8,9 @@ import { Pokemon } from './interface/pokemon';
 })
 export class PokemonBasicService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.loadTypes();
+  }
 
   public getInfo(): Observable<Pokemon[]> {
 
@@ -42,6 +44,20 @@ export class PokemonBasicService {
       generation = "Four Generation"
     }
     return generation;
+  }
+
+  private types: any[] = [];
+
+  private loadTypes() {
+    this.http.get<any>('assets/data/types.json').subscribe(
+      (typesData) => {
+        this.types = typesData.results.map((type: any) => type.name);
+      }
+    );
+  }
+
+  getTypes(): any[] {
+    return this.types;
   }
 
 }
