@@ -9,13 +9,9 @@
   align-items: center;
   margin-bottom: 2%;
 }
-@font-face {
-  font-family: 'Pokemon';
-  src: url('PokemonSolid.ttf') format('truetype');
-  font-style: normal;
-}
 
 h1{
+  font-family: Pokemon;
   text-align: center;
   letter-spacing: 8px;
   color: rgb(255,215,0); 
@@ -28,6 +24,30 @@ h1{
   animation: rotation 2s infinite linear;
 }
 
+.backpag:hover{
+  transform: rotate(-10deg);
+}
+
+/* Estilos de Buscador */
+
+.search-container {
+  text-align: center;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex-grow: 1;
+  font-size: 16px;
+  width: 20%;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* DISEÑO KEYFRAMES */
 @keyframes rotation {
   from {
       transform: rotate(0deg);
@@ -36,29 +56,10 @@ h1{
       transform: rotate(359deg);
   }
 }
-.backpag:hover{
-  transform: rotate(-10deg);
-}
 
-/* Estilos de Buscador */
-
-.searcher  {
-  text-align: center;
-}
-
-/* Estilos botones types */
-
-.types {
-  display: inline;
-  padding: 2%;
-}
-
-button[n="First Generation"] {
-  background-color: rgb(116, 116, 231);
-  border: solid 3px brown;
-  border-radius: 15px;
-}
-
-button:hover[n="First Generation"]{
-  background-color: aqua;
+/* DISEÑO LETRA */
+@font-face {
+  font-family: 'Pokemon';
+  src: url('PokemonSolid.ttf') format('truetype');
+  font-style: normal;
 }

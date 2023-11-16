@@ -11,9 +11,13 @@ import { Pokemon } from '../interface/pokemon';
 })
 export class PokemonListComponent implements OnInit{
 
+  // Array de tipo Pokemon que contiene la informacion basica para la lista pokemon
   data: Pokemon[] = [];
   botonPulsado: string = "0";
   filterTypes: string = "";
+
+  // Array que contine hasta que número va cada generación
+  numberGeneration: number[] = [151, 251, 386, 492]
 
   constructor(private pokemonBasicService: PokemonBasicService) {
     
@@ -47,65 +51,33 @@ export class PokemonListComponent implements OnInit{
   getTypeFiltered(type: any){
     this.types.push(type)
   }
+
+  // Buscador por nombres, generacion y tipos COMPLETO
   getDataFiltered(): Pokemon[] {
 
     if (this.botonPulsado.includes("1")) {
-      return this.data.filter((pokemon) => {
-        const genMatch = pokemon.id <= 151;
-        const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
-        const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
-        return genMatch && nameMatch && typeMatch;
-      });
+      return this.getFunctionDataFiltered(0, this.numberGeneration[0])
     } else if (this.botonPulsado.includes("2")) {
-      return this.data.filter((pokemon) => {
-        const genMatch = pokemon.id > 151 && pokemon.id <= 251;
-        const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
-        const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
-        return genMatch && nameMatch && typeMatch;
-      });
+      return this.getFunctionDataFiltered(this.numberGeneration[0], this.numberGeneration[1])
     } else if (this.botonPulsado.includes("3")) {
-      return this.data.filter((pokemon) => {
-        const genMatch = pokemon.id > 251 && pokemon.id <= 386;
-        const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
-        const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
-        return genMatch && nameMatch && typeMatch;
-      });
+      return this.getFunctionDataFiltered(this.numberGeneration[1], this.numberGeneration[2])
     } else if (this.botonPulsado.includes("4")) {
-      return this.data.filter((pokemon) => {
-        const genMatch = pokemon.id > 386 && pokemon.id <= 492;
-        const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
-        const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
-        return genMatch && nameMatch && typeMatch;
-      });
+      return this.getFunctionDataFiltered(this.numberGeneration[2], this.numberGeneration[3])
     } else {
-      return this.data.filter((pokemon) => {
-        const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
-        const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
-        return nameMatch && typeMatch;
-      });
+      return this.getFunctionDataFiltered(0, this.numberGeneration[3])
     }
     
   }
 
-  /*  // Filtrado por primera generacion
-  getDataFirstGeneration(): Pokemon[]{
-    return this.getData().filter((pokemons)=>pokemons.id <= 151 && pokemons.name.includes(this.filter));
+  // Funcion getDataFiltered
+  getFunctionDataFiltered (number1: number, number2: number): Pokemon[] {
+    return this.data.filter((pokemon) => {
+      const genMatch = pokemon.id > number1 && pokemon.id <= number2;
+      const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
+      const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
+      return genMatch && nameMatch && typeMatch;
+    });
   }
-
-  // Filtrado por segunda generacion
-  getDataSecondGeneration(): Pokemon[]{
-    return this.getData().filter((pokemons)=>pokemons.id > 151 && pokemons.id <= 251 && pokemons.name.includes(this.filter));
-  }
-
-  // Filtrado por tercera generacion
-  getDataThirdGeneration(): Pokemon[]{
-    return this.getData().filter((pokemons)=>pokemons.id > 251 && pokemons.id <= 386 && pokemons.name.includes(this.filter));
-  }
-
-  // Filtrado por cuarta generacion
-  getDataFourGeneration(): Pokemon[]{
-    return this.getData().filter((pokemons)=>pokemons.id > 386 && pokemons.id <= 492 && pokemons.name.includes(this.filter));
-  } */
 
   // Reseto de filtros
   resetFilters(){
@@ -113,24 +85,10 @@ export class PokemonListComponent implements OnInit{
     this.types = []
   }
 
-  // Obtener nombre de los tipos desde types.json
-  setNameType(type: string){
-    this.filterTypes = type;
-  }
-
-  getNameType(type: string){
-    this.botonPulsado = type;
-  }
-
   // Funcion para botones Generacion
   pulsado(n: string) {
     this.botonPulsado = n;
   }
-
-  /*
-    getDataFiltered(): Pokemon[]{
-    return this.getData().filter((pokemons)=>pokemons.name.includes(this.filter) || pokemons.id.toString().includes(this.filter));
-  }*/
 
 }
 

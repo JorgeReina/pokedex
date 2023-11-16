@@ -124,35 +124,27 @@ button[type="Dark"] {
 
 /* DISEÑO BOTONES GENERACION Y TIPOS PARA FILTRAR */
 
-.typesLetter {
-  color: white;
-}
-
-.typesButton {
-  cursor: pointer;
-  
-}
-.typesButton:hover{
-  cursor: pointer;
-  animation: shakeUpToUp 1s infinite;
-}
-
-
 .filter {
   margin: 2%;
   text-align: center;
 }
 
-.generationButton:hover { /* #afafaf*/
+.typesButton {
+  cursor: pointer;
+}
+
+.typesButton:hover{
+  cursor: pointer;
+  animation: shakeUpToUp 1s infinite;
+}
+
+.generationButton:hover { 
   cursor: pointer;
   background-image: linear-gradient(to left, rgb(255, 255, 255)40%, rgb(247, 68, 68)80%) ;
 }
 
-.generationButton:active {
-  background-color: #6890F0;
-}
+/* FIN DISEÑO BOTONES GENERACION Y TIPOS PARA FILTRAR */
 
-/* FIN DISEÑO BOTONES GENERACION */
 /* KEYFRAMES SALTOS*/
 @keyframes shakeUpToDown {
   0% {
@@ -165,14 +157,15 @@ button[type="Dark"] {
     transform: translateY(0px);
   }
 }
-  @keyframes shakeUpToUp {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+
+@keyframes shakeUpToUp {
+  0% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
