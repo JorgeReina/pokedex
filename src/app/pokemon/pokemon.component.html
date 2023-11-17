@@ -1,1 +1,24 @@
-<p>pokemon works!</p>
+<!--
+  <div class="pokemon-list-container">
+  <div class="row" *ngFor="let item of getData()">
+    <div class="pokemon-container">
+      <br>
+      <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
+      <img class="sizeImage" [src]="item.image" alt="">
+      <p>{{item.name | titlecase}}</p>
+      <div *ngIf="item.types.length > 0">
+        <button *ngFor="let type of item.types" [attr.type]="type">{{ type }}</button>
+      </div>
+      <p>{{item.heigth}}</p>
+      <p>{{item.weigth}}</p>
+      <p *ngFor="let stats of item.baseStats">{{stats}}</p>
+    </div>
+  </div>
+</div>
+-->
+
+<div>
+  <div>
+    <p>{{infoPokemon.name}}</p>
+  </div>
+</div>

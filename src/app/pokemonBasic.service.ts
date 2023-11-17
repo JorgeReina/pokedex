@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map } from 'rxjs';
 import { Pokemon } from './interface/pokemon';
+import { PokemonInfo } from './interface/pokemonInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,23 @@ export class PokemonBasicService {
 
     return forkJoin(pokemons);
 
+  }
+
+  public getInfoDetail(id: number): Observable<PokemonInfo> {
+
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+      .pipe(map((response: any) => {
+        return { 
+          name: response.name,
+          id: response.id,
+          image: response.sprites.other['official-artwork'].front_default,
+          shiny: response.sprites.other['official-artwork'].front_shiny,
+          types: response.types.map((data: any) => data.type.name),
+          weigth: response.weigth,
+          heigth: response.heigth,
+          baseStats: response.stats.map((data: any) => data.baseStats)
+        };
+      }));
   }
 
   public assignGeneration(generation: any): any {

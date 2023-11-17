@@ -15,7 +15,6 @@ export class PokemonListComponent implements OnInit{
   data: Pokemon[] = [];
   botonPulsado: string = "0";
   filterTypes: string = "";
-
   filterNomre: string = "";
 
   // Array que contine hasta que número va cada generación

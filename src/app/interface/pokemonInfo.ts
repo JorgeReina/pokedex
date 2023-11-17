@@ -5,5 +5,8 @@ export interface PokemonInfo {
   image: string,
   shiny: string,
   types: string[],
+  weigth: number,
+  heigth: number,
+  baseStats: number[]
   
 }
