@@ -1,3 +1,9 @@
+<!--Buscador por Nombre-->
+<div class="search-container">
+  <input class="search-input" type="search" placeholder="Vaporeon" [(ngModel)] = "filterNomre" (keyup)="filterNomre"/>
+</div>
+
+<!--Filtros por Generacion-->
 <div class="filter">
   <button (click)="pulsado('0')" class="generationButton">Full List</button>
   <button (click)="pulsado('1')" class="generationButton">First Generation</button>
@@ -6,6 +12,7 @@
   <button (click)="pulsado('4')" class="generationButton">Four Generation</button>
 </div>
 
+<!--Filtros por Types-->
 <div class="filter" >
   <button class="typesButton" *ngFor="let item of getTypes()" [attr.type]="item" (click)="getTypeFiltered(item)" >{{item}}</button>
   <button class="typesButton" (click)="resetFilters()">Reset</button>
@@ -13,7 +20,7 @@
 
 <div class="pokemon-list-container">
   <div class="row" *ngFor="let item of getDataFiltered()">
-    <div class="pokemon-container">
+    <div class="pokemon-container" [routerLink]="'/pokemon/'+ item.id">
       <br>
       <p >Nº {{item.id.toString().padStart(3, '0')}}</p>
       <img class="sizeImage" [src]="item.image" alt="">

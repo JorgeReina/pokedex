@@ -7,13 +7,4 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output()
-  inputTextEvent = new EventEmitter();
-
-  inputText="";
-  
-  sendInputText(){
-    this.inputTextEvent.emit({inputText: this.inputText.toLowerCase()});
-  }
-
 }

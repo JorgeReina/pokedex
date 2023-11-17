@@ -16,6 +16,8 @@ export class PokemonListComponent implements OnInit{
   botonPulsado: string = "0";
   filterTypes: string = "";
 
+  filterNomre: string = "";
+
   // Array que contine hasta que número va cada generación
   numberGeneration: number[] = [151, 251, 386, 492]
 
@@ -73,7 +75,7 @@ export class PokemonListComponent implements OnInit{
   getFunctionDataFiltered (number1: number, number2: number): Pokemon[] {
     return this.data.filter((pokemon) => {
       const genMatch = pokemon.id > number1 && pokemon.id <= number2;
-      const nameMatch = pokemon.name.includes(this.filter) || pokemon.id.toString().includes(this.filter);
+      const nameMatch = pokemon.name.includes(this.filterNomre) || pokemon.id.toString().includes(this.filterNomre);
       const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
       return genMatch && nameMatch && typeMatch;
     });
