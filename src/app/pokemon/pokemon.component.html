@@ -8,9 +8,12 @@
       <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
     </div>
     <p>Height: {{infoPokemon.height / 10}} meters</p>
-    <p>Weight: {{infoPokemon.weight}}</p>
+    <p>Weight: {{infoPokemon.weight}} Kg</p>
   </div>
   <div *ngFor="let stats of infoPokemon.baseStats; let i = index;">
     <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
-  </div>    
+  </div>
+  <div>
+    <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
+  </div> 
 </div>
