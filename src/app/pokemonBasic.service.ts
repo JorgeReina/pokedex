@@ -13,6 +13,7 @@ export class PokemonBasicService {
     this.loadTypes();
   }
 
+  //  METODO QUE DEVUELVE LA INFORMACION NECESARIA PARA LA LISTA POKEMON
   public getInfo(): Observable<Pokemon[]> {
 
     let pokemons: Observable<Pokemon>[] = [];
@@ -34,6 +35,7 @@ export class PokemonBasicService {
 
   }
 
+  //  METODO QUE DEVUELVE INFORMACION DETALLADA DE CADA POKEMON
   public getInfoDetail(id: number): Observable<PokemonInfo> {
 
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
@@ -44,13 +46,15 @@ export class PokemonBasicService {
           image: response.sprites.other['official-artwork'].front_default,
           shiny: response.sprites.other['official-artwork'].front_shiny,
           types: response.types.map((data: any) => data.type.name),
-          weigth: response.weigth,
-          heigth: response.heigth,
-          baseStats: response.stats.map((data: any) => data.baseStats)
+          weight: response.weight,
+          height: response.height,
+          nameStats: response.stats.map((data: any) => data.stat.name),
+          baseStats: response.stats.map((data: any) => data.base_stat),
         };
       }));
   }
 
+  //  ASIGNACION DE GENERACION (NO MUY UTIL)
   public assignGeneration(generation: any): any {
     if (generation <= 151) {
       generation = "First Generation";
@@ -64,6 +68,7 @@ export class PokemonBasicService {
     return generation;
   }
 
+  // LA SENTENCIA DE ABAJO SE ENCARGA DE MOSTRAR LOS TIPOS EN EL BUSCADOR
   private types: any[] = [];
 
   private loadTypes() {

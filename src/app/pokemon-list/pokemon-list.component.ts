@@ -74,7 +74,7 @@ export class PokemonListComponent implements OnInit{
   getFunctionDataFiltered (number1: number, number2: number): Pokemon[] {
     return this.data.filter((pokemon) => {
       const genMatch = pokemon.id > number1 && pokemon.id <= number2;
-      const nameMatch = pokemon.name.includes(this.filterNomre) || pokemon.id.toString().includes(this.filterNomre);
+      const nameMatch = pokemon.name.includes(this.filterNomre.toLowerCase()) || pokemon.id.toString().includes(this.filterNomre.toLowerCase());
       const typeMatch = this.types && this.types.length == 0 || this.types.some((type: string) => pokemon.types.includes(type));
       return genMatch && nameMatch && typeMatch;
     });

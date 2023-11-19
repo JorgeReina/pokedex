@@ -1,0 +1,119 @@
+.pokemon-list-container {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  flex-basis: 25%;
+}
+
+.pokemon-container {
+  margin: 10px;
+  text-align: center;
+  border-color: (221, 221, 221);
+  background-color: rgb(221, 221, 221);
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgb(101, 101, 101);
+}
+
+.sizeImage {
+  width: 250px;
+  height: 250px;
+}
+
+* {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* DISEÑO INFO E IMG BASIC DEL POKEMON */
+
+
+
+/* FIN DISEÑO INFO E IMG BASIC DEL POKEMON */
+
+/* DISEÑO Y COLORES DE LOS TIPOS */
+
+button {
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-right: 1%;
+}
+
+button[type="Steel"] {
+  background-color: #B8B8D0; /* Acero */
+}
+
+button[type="Water"] {
+  background-color: #6890F0; /* Agua */
+}
+
+button[type="Bug"] {
+  background-color: #A8B820; /* Bicho */
+}
+
+button[type="Dragon"] {
+  background-color: #7038F8; /* Dragón */
+  color: white;
+}
+
+button[type="Electric"] {
+  background-color: #F8D030; /* Eléctrico */
+}
+
+button[type="Ghost"] {
+  background-color: #705898; /* Fantasma */
+}
+
+button[type="Fire"] {
+  background-color: #F08030; /* Fuego */
+}
+
+button[type="Ice"] {
+  background-color: #98D8D8; /* Hielo */
+}
+
+button[type="Normal"] {
+  background-color: #A8A878; /* Normal */
+}
+
+button[type="Grass"] {
+  background-color: #78C850; /* Planta */
+}
+
+button[type="Psychic"] {
+  background-color: #F85888; /* Psíquico */
+}
+
+button[type="Rock"] {
+  background-color: #B8A038; /* Roca */
+}
+
+button[type="Ground"] {
+  background-color: #E0C068; /* Tierra */
+}
+
+button[type="Fighting"] {
+  background-color: #C03028; /* Lucha */
+}
+
+button[type="Fairy"] {
+  background-color: #EE99AC; /* Hada */
+}
+
+button[type="Poison"] {
+  background-color: #A040A0; /* Veneno */
+}
+
+button[type="Flying"] {
+  background-color: #A890F0; /* Volador */
+}
+
+button[type="Dark"] {
+  background-color: #333333; /* siniestro */
+  color: white; 
+}
+
+/* HASTA AQUI DISEÑO DE TIPOS */
