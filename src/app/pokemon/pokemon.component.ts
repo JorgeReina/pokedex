@@ -147,6 +147,13 @@ export class PokemonComponent implements OnInit{
     
   }
 
+  //Cambiar a shiny
+  shinyMode = false;
+
+  toggleShiny() {
+    this.shinyMode = !this.shinyMode;
+  }
+
   /*
   showTableDamage(type1: number, type2: number) {
     if (type2 == undefined) {
