@@ -1,10 +1,12 @@
 export interface TypeData {
-  name: string;
-  effectiveness: {
-    strongAgainst: string[];
-    weakAgainst: string[];
-    notEffectiveAgainst: string[];
-    resistantTo: string[];
-    immuneTo: string[];
-  };
+
+  x4: string[]
+  doubleDamageFrom: string[]
+  doubleDamageTo: string[]
+  halfDamageFrom: string[]
+  quarterDamageFrom: string[]
+  halfDamageTo: string[]
+  noDamageFrom: string[]
+  noDamageTo: string[]
+
 }

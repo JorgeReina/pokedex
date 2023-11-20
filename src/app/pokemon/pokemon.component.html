@@ -16,4 +16,9 @@
   <div>
     <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
   </div> 
+  <div>
+    <p>Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
+    <p>Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
+    <p>Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
+  </div>
 </div>

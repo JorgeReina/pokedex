@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, map } from 'rxjs';
+import { Observable, filter, forkJoin, map } from 'rxjs';
 import { Pokemon } from './interface/pokemon';
 import { PokemonInfo } from './interface/pokemonInfo';
 import { Description } from './interface/description';
@@ -72,12 +72,10 @@ export class PokemonBasicService {
     }));
   }
 
-  public getIdTypes(type: string): any {
+  public getIdTypes(type: string): Observable<number> {
     return this.http.get('assets/data/types.json')
     .pipe(map((response: any) => {
-      return {
-        id: response.id
-      }
+      return (response.filter((idType: any) => type == idType.name))[0].id;
     }));
   }
 
@@ -116,7 +114,7 @@ export class PokemonBasicService {
   private loadTypes() {
     this.http.get<any>('assets/data/types.json').subscribe(
       (typesData) => {
-        this.types = typesData.results.map((type: any) => type.name);
+        this.types = typesData.map((type: any) => type.name);
         //this.types = typesData.results.map((type: any) => type.id);
       }
     );
