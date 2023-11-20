@@ -122,12 +122,6 @@ export class PokemonComponent implements OnInit{
       tap(description => this.descriptionPokemon = description)
     );
   }
-  //Cambiar a shiny
-  shinyMode = false;
-
-  toggleShiny() {
-  this.shinyMode = !this.shinyMode;
-}
 
   //  METODO QUE DEVUELVE CORRECTAMENTE LA DESCRIPCION DEL POKEMON CON LOS SALTOS DE LINEA
   formatDescription(description: string): string {

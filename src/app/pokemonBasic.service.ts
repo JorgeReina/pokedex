@@ -72,6 +72,7 @@ export class PokemonBasicService {
     }));
   }
 
+  //  DEVUELVE EL ID DEL TIPO ASIGNADO
   public getIdTypes(type: string): Observable<number> {
     return this.http.get('assets/data/types.json')
     .pipe(map((response: any) => {
