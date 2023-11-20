@@ -1,16 +1,21 @@
-<div class="pokemon-container">
+<div  *ngFor="let type of infoPokemon.types"  [attr.type]="type" class="pokemon-container">
+  <br>
   <div>
-    <p >Nº {{infoPokemon.id.toString().padStart(3, '0')}}</p>
-    <img class="sizeImage" [src]="infoPokemon.image" alt="">
-    <img class="sizeImage" [src]="infoPokemon.shiny" alt="">
-    <p>{{infoPokemon.name | titlecase}}</p>
-    <div *ngIf="infoPokemon.types.length > 0">
+    <div class="left-content">Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}} <br><br><div class="center-content" *ngIf="infoPokemon.types.length > 0">
       <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-    </div>
-    <p>Height: {{infoPokemon.height / 10}} meters</p>
-    <p>Weight: {{infoPokemon.weight}}</p>
+    </div>  </div><br>
+    <div class="border"><img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt=""><br></div>
+    <br>
+    <button class="shiny" (click)="toggleShiny()">Shiny</button>
+    <!--<p>{{infoPokemon.name | titlecase}}</p>-->
+    <!--<div *ngIf="infoPokemon.types.length > 0">
+      <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
+    </div> -->
+    <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
+    <p class="left-content">Weight: {{infoPokemon.weight}}</p>
   </div>
-  <div *ngFor="let stats of infoPokemon.baseStats; let i = index;">
+  <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
     <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
   </div>    
 </div>
+

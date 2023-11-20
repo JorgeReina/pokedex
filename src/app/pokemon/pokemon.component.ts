@@ -44,5 +44,11 @@ export class PokemonComponent implements OnInit{
   getData(): PokemonInfo{
     return this.infoPokemon;
   }
+  //Cambiar a shiny
+  shinyMode = false;
+
+  toggleShiny() {
+  this.shinyMode = !this.shinyMode;
+}
 
 }
