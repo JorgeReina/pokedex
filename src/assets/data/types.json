@@ -1,58 +1,76 @@
 {
   "results": [
     {
-        "name": "normal"
+        "name": "normal",
+        "id": "1"
     },
     {
-        "name": "fighting"
+        "name": "fighting",
+        "id": "2"
     },
     {
-        "name": "flying"
+        "name": "flying",
+        "id": "3"
     },
     {
-        "name": "poison"
+        "name": "poison",
+        "id": "4"
     },
     {
-        "name": "ground"
+        "name": "ground",
+        "id": "5"
     },
     {
-        "name": "rock"
+        "name": "rock",
+        "id": "6"
     },
     {
-        "name": "bug"
+        "name": "bug",
+        "id": "7"
     },
     {
-        "name": "ghost"
+        "name": "ghost",
+        "id": "8"
     },
     {
-        "name": "steel"
+        "name": "steel",
+        "id": "9"
     },
     {
-        "name": "fire"
+        "name": "fire",
+        "id": "10"
     },
     {
-        "name": "water"
+        "name": "water",
+        "id": "11"
     },
     {
-        "name": "grass"
+        "name": "grass",
+        "id": "12"
     },
     {
-        "name": "electric"
+        "name": "electric",
+        "id": "13"
     },
     {
-        "name": "psychic"
+        "name": "psychic",
+        "id": "14"
     },
     {
-        "name": "ice"
+        "name": "ice",
+        "id": "15"
     },
     {
-        "name": "dragon"
+        "name": "dragon",
+        "id": "16"
     },
     {
-        "name": "dark"
+        "name": "dark",
+        "id": "17"
     },
     {
-        "name": "fairy"
+        "name": "fairy",
+        "id": "18"
     }
 ]
 }

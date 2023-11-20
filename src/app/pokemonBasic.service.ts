@@ -48,6 +48,7 @@ export class PokemonBasicService {
           image: response.sprites.other['official-artwork'].front_default,
           shiny: response.sprites.other['official-artwork'].front_shiny,
           idTypes: response.types.map((data: any) => data.slot),
+          urlTypes: response.types.map((data: any) => data.url),
           types: response.types.map((data: any) => data.type.name),
           weight: response.weight,
           height: response.height,
@@ -68,6 +69,15 @@ export class PokemonBasicService {
       return {
         description: filteredEntries
       };
+    }));
+  }
+
+  public getIdTypes(type: string): any {
+    return this.http.get('assets/data/types.json')
+    .pipe(map((response: any) => {
+      return {
+        id: response.id
+      }
     }));
   }
 
@@ -107,6 +117,7 @@ export class PokemonBasicService {
     this.http.get<any>('assets/data/types.json').subscribe(
       (typesData) => {
         this.types = typesData.results.map((type: any) => type.name);
+        //this.types = typesData.results.map((type: any) => type.id);
       }
     );
   }
