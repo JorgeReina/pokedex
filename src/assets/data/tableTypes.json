@@ -1,0 +1,22 @@
+{
+  "types": {
+    "normal": { "strong": ["nothing"], "weak": ["fighting"], "immune": ["ghost"] },
+    "fighting": { "strong": ["normal", "rock", "steel","ice","dark"], "weak": ["flying", "psychic", "fairy"], "immune": [] },
+    "flying": { "strong": ["fighting", "bug", "grass"], "weak": ["electric", "rock", "steel"], "immune": ["ground"] },
+    "poison": { "strong": ["grass", "fairy"], "weak": ["ground", "psychic"], "immune": [] },
+    "ground": { "strong": ["poison", "rock", "steel", "fire", "electric"], "weak": ["water", "grass", "ice"], "immune": ["electric"] },
+    "rock": { "strong": ["flying", "bug", "fire", "ice"], "weak": ["fighting", "ground", "steel","water","grass"], "immune": [] },
+    "bug": { "strong": ["grass", "psychic", "dark"], "weak": ["flying", "rock", "fire"], "immune": [] },
+    "ghost": { "strong": ["ghost", "psychic"], "weak": ["dark", "ghost"], "immune": ["normal", "fighting"] },
+    "steel": { "strong": ["rock", "ice", "fairy"], "weak": ["fighting", "ground", "fire"], "immune": ["poison"] },
+    "fire": { "strong": ["bug", "steel", "grass", "ice"], "weak": ["ground", "rock", "water"], "immune": [] },
+    "water": { "strong": ["ground", "rock", "fire"], "weak": ["electric", "grass"], "immune": [] },
+    "grass": { "strong": ["water", "ground", "rock"], "weak": ["flying", "poison", "bug", "fire", "ice"], "immune": [] },
+    "electric": { "strong": ["water", "flying"], "weak": ["ground"], "immune": [] },
+    "psychic": { "strong": ["fighting", "poison"], "weak": ["bug", "ghost", "dark"], "immune": [] },
+    "ice": { "strong": ["flying", "ground", "grass", "dragon"], "weak": ["fighting", "rock", "steel", "fire"], "immune": [] },
+    "dragon": { "strong": ["dragon"], "weak": ["ice", "dragon", "fairy"], "immune": [] },
+    "dark": { "strong": ["ghost", "psychic"], "weak": ["fighting", "bug", "fairy"], "immune": ["psychic"] },
+    "fairy": { "strong": ["fighting", "dragon", "dark"], "weak": ["poison", "steel"], "immune": [] }
+  }
+}
