@@ -104,6 +104,11 @@ export class PokemonComponent implements OnInit{
     return formattedText;
   }
 
+  //  METDODO QUE UNIFICA LAS TABLAS
+  joinTableDamage() {
+    this.tableDamagesFull.x4 = this.tableDamages.doubleDamageFrom && this.tableDamages2.doubleDamageFrom
+  }
+
   //  METODO QUE MUESTRA LAS TABLAS RELLENAS
   showTableDamage(n: number, type:number, option: number) {
     this.pokemonBasicService.getIdTypes(this.infoPokemon.types[n]).subscribe(
@@ -141,6 +146,11 @@ export class PokemonComponent implements OnInit{
 
   toggleShiny() {
     this.shinyMode = !this.shinyMode;
+  }
+
+  //  
+  getImagePath(type: string): string {
+    return `/assets/images/types/${type.toLowerCase()}.png`;
   }
 
 }

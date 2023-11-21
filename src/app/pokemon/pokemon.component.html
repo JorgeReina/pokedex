@@ -4,10 +4,18 @@
   <div [attr.type]="infoPokemon.types[0]" class="pokemon-container">
     <br>
     <div >
-      <div class="left-content">Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}} <br><br><div class="center-content" *ngIf="infoPokemon.types.length > 0">
-        <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-      </div>  </div><br>
-      <div class="border"><img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt=""><br></div>
+      <div class="left-content">
+        <p>Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}}</p> 
+        <div class="center-content" *ngIf="infoPokemon.types.length > 0">
+          <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
+          <img [src]="getImagePath(infoPokemon.types[0])" class="pokemon-image" alt="">
+        </div>  
+      </div>
+      <br>
+      <div class="border">
+        <img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt="">
+        <br>
+      </div>
       <br>
       <button class="shiny" (click)="toggleShiny()">Shiny</button>
       <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
