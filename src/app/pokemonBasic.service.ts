@@ -86,11 +86,11 @@ export class PokemonBasicService {
     .pipe(map((response: any) => {
       return {
         doubleDamageFrom: response.damage_relations.double_damage_from.map((type: any) => type.name),
-        doubleDamageTo: response.damage_relations.double_damage_to.map((type: any) => type.name),
+        //doubleDamageTo: response.damage_relations.double_damage_to.map((type: any) => type.name),
         halfDamageFrom: response.damage_relations.half_damage_from.map((type: any) => type.name),
-        halfDamageTo: response.damage_relations.half_damage_to.map((type: any) => type.name),
+        //halfDamageTo: response.damage_relations.half_damage_to.map((type: any) => type.name),
         noDamageFrom: response.damage_relations.no_damage_from.map((type: any) => type.name),
-        noDamageTo: response.damage_relations.no_damage_to.map((type: any) => type.name),
+        //noDamageTo: response.damage_relations.no_damage_to.map((type: any) => type.name),
       };
     }));
   }

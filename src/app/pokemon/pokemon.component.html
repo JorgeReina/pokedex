@@ -1,65 +1,41 @@
-<!--
-  <div class="pokemon-container">
-  <div>
-    <div class="left-content">Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}} <br><br><div class="center-content" *ngIf="infoPokemon.types.length > 0">
-      <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-    </div>  </div><br>
-    <div class="border"><img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt=""><br></div>
-    <br>
-    <button class="shiny" (click)="toggleShiny()">Shiny</button>
-    <p>{{infoPokemon.name | titlecase}}</p>-->
-    <!--<div *ngIf="infoPokemon.types.length > 0">
-      <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-    </div>
-    <p>Height: {{infoPokemon.height / 10}} meters</p>
-    <p>Weight: {{infoPokemon.weight}}</p>
-  </div>
-  <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
-    <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
-  </div>
-  <div>
-    <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
-  </div> 
-  <div>
-    <p>Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
-    <p>Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
-    <p>Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
-  </div>
-</div>
--->
 <hr>
 <br>
 <div class="grid-container">
-<div [attr.type]="infoPokemon.types[0]" class="pokemon-container">
-  <br>
-  <div >
-    <div class="left-content">Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}} <br><br><div class="center-content" *ngIf="infoPokemon.types.length > 0">
-      <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-    </div>  </div><br>
-    <div class="border"><img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt=""><br></div>
+  <div [attr.type]="infoPokemon.types[0]" class="pokemon-container">
     <br>
-    <button class="shiny" (click)="toggleShiny()">Shiny</button>
-    <!--<p>{{infoPokemon.name | titlecase}}</p>-->
-    <!--<div *ngIf="infoPokemon.types.length > 0">
-      <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-    </div> -->
-    <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
-    <p class="left-content">Weight: {{infoPokemon.weight}}</p>
-    <div>
-      <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
+    <div >
+      <div class="left-content">Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}} <br><br><div class="center-content" *ngIf="infoPokemon.types.length > 0">
+        <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
+      </div>  </div><br>
+      <div class="border"><img class="sizeImage" [src]="shinyMode ? infoPokemon.shiny : infoPokemon.image" alt=""><br></div>
+      <br>
+      <button class="shiny" (click)="toggleShiny()">Shiny</button>
+      <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
+      <p class="left-content">Weight: {{infoPokemon.weight}} Kg</p>
+      <div>
+        <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
+      </div>
     </div>
   </div>
-</div>
-<div class="stats">
-  <p class="marginleft">HABILITIES: <br></p>
-  <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
-    <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
+  <div class="stats">
+    <p class="marginleft">HABILITIES: <br></p>
+    <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
+      <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
+    </div>
   </div>
-</div>
   <div class="types">
-    <p class="marginleft">Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
-    <p class="marginleft">Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
-    <p class="marginleft">Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
+    
+      <p class="marginleft">Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
+      <p class="marginleft">Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
+      <p class="marginleft">Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
+    
+    <!--
+      <p class="marginleft">Muy Debil contra: {{tableDamagesFull.x4}}</p>
+      <p class="marginleft">Debil contra: {{tableDamagesFull.doubleDamageFrom}}</p>
+      <p class="marginleft">Fuerte contra: {{tableDamagesFull.halfDamageFrom}}</p>
+      <p class="marginleft">Muy Fuerte contra: {{tableDamagesFull.quarterDamageFrom}}</p>
+      <p class="marginleft">Inmune a: {{tableDamagesFull.noDamageFrom}}</p>
+    -->
   </div>
 </div>
 

@@ -4,7 +4,8 @@ import { PokemonInfo } from '../interface/pokemonInfo';
 import { ActivatedRoute } from "@angular/router";
 import { Description } from '../interface/description';
 import { Damages } from '../interface/damages';
-import { Observable, forkJoin, map, pipe, tap } from 'rxjs';
+import { Observable, delay, forkJoin, map, pipe, tap } from 'rxjs';
+import { TableDamages } from '../interface/tableDamages';
 
 @Component({
   selector: 'app-pokemon',
@@ -36,20 +37,22 @@ export class PokemonComponent implements OnInit{
 
   tableDamages: Damages = {
     doubleDamageFrom: [],
-    doubleDamageTo: [],
     halfDamageFrom: [],
-    halfDamageTo: [],
     noDamageFrom: [],
-    noDamageTo: [],
   }
 
   tableDamages2: Damages = {
     doubleDamageFrom: [],
-    doubleDamageTo: [],
     halfDamageFrom: [],
-    halfDamageTo: [],
     noDamageFrom: [],
-    noDamageTo: [],
+  }
+
+  tableDamagesFull: TableDamages = {
+    x4: [],
+    doubleDamageFrom: [],
+    halfDamageFrom: [],
+    quarterDamageFrom: [],
+    noDamageFrom: [],
   }
 
   idTypes: number[] = []
@@ -59,53 +62,25 @@ export class PokemonComponent implements OnInit{
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.numberList = params['id'];
-      this.setData();
-      this.setDescription();
 
       forkJoin([
         this.setData(),
         this.setDescription()
-      ]).subscribe(() => {
-
-
-        if (this.infoPokemon.types.length > 0) {
-          this.pokemonBasicService.getIdTypes(this.infoPokemon.types[0]).subscribe(
-            (id: number) => {
-              this.type1 = id;
-              console.log(this.type1);
-              this.setTableDamage(this.type1)
-            });
-  
-          this.pokemonBasicService.getIdTypes(this.infoPokemon.types[1]).subscribe(
-            (id: number) => {
-              this.type2 = id;
-              console.log(this.type2);
-              this.setTableDamage2(this.type2)
-
-            });
-        } 
-        if (this.infoPokemon.types.length == 0) {
-          this.pokemonBasicService.getIdTypes(this.infoPokemon.types[0]).subscribe(
-            (id: number) => {
-              this.type1 = id;
-              console.log(this.type1);
-              this.setTableDamage(this.type1)
-            });
-        }
-        
+      ]).pipe(
+        // Agrega un delay de 300 milisegundos (0.3 segundo)
+        delay(300),
+        tap(() => {
+          if (this.infoPokemon.types.length > 0) {
+            this.showTableDamage(0, this.type1, 1);
+            this.showTableDamage(1, this.type2, 2);
+          } else {
+            this.showTableDamage(0, this.type1, 1);
+          }
+        })
+      ).subscribe(() => {
+        // Otras operaciones después del retraso
       });
 
-      /*
-      let type1: number = 0;
-      let type2: number = 0;
-
-      if (this.infoPokemon.idTypes) {
-        type1 = this.infoPokemon.idTypes[0];
-        type2 = this.infoPokemon.idTypes[1];
-      }
-
-      this.setTableDamage(type1);
-      */
     });
   }
       
@@ -129,21 +104,35 @@ export class PokemonComponent implements OnInit{
     return formattedText;
   }
 
-  //  METODO QUE DEVULEVE LA TABLA DE DAÑOS DEL 1º TIPO
-  setTableDamage(types: number) {
-    this.pokemonBasicService.getTableDamage(types).subscribe((tableDamages) => {
-      this.tableDamages = tableDamages as Damages;
-    console.log(this.tableDamages)
-    });
-    
+  //  METODO QUE MUESTRA LAS TABLAS RELLENAS
+  showTableDamage(n: number, type:number, option: number) {
+    this.pokemonBasicService.getIdTypes(this.infoPokemon.types[n]).subscribe(
+      (id: number) => {
+        type = id;
+        //console.log(type);
+        this.setTableDamage(type, option)
+      });
   }
 
-  //  METODO QUE DEVULEVE LA TABLA DE DAÑOS DEL 2º TIPO
-  setTableDamage2(types: number) {
-    this.pokemonBasicService.getTableDamage(types).subscribe((tableDamages) => {
-      this.tableDamages2 = tableDamages as Damages;
-    console.log(this.tableDamages2)
-    });
+  //  METODO QUE DEVULEVE LA TABLA DE DAÑOS
+  setTableDamage(types: number, option: number) {
+    
+    switch (option) {
+      case 1:
+        this.pokemonBasicService.getTableDamage(types).subscribe((tableDamages) => {
+          this.tableDamages = tableDamages as Damages;
+          //console.log(this.tableDamages)
+        });
+        break;
+      case 2:
+        this.pokemonBasicService.getTableDamage(types).subscribe((tableDamages) => {
+          this.tableDamages2 = tableDamages as Damages;
+          //console.log(this.tableDamages2)
+        });
+        break;
+      default:
+        break;
+    }
     
   }
 
@@ -153,17 +142,5 @@ export class PokemonComponent implements OnInit{
   toggleShiny() {
     this.shinyMode = !this.shinyMode;
   }
-
-  /*
-  showTableDamage(type1: number, type2: number) {
-    if (type2 == undefined) {
-      this.setTableDamage(type1).subscribe();
-    } else {
-      this.setTableDamage(type1).subscribe();
-      this.setTableDamage(type2).subscribe();
-    }
-    
-  }
-  */
 
 }

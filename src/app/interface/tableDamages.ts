@@ -1,12 +1,9 @@
-export interface TypeData {
+export interface TableDamages {
 
   x4: string[]
   doubleDamageFrom: string[]
-  doubleDamageTo: string[]
   halfDamageFrom: string[]
   quarterDamageFrom: string[]
-  halfDamageTo: string[]
   noDamageFrom: string[]
-  noDamageTo: string[]
 
 }

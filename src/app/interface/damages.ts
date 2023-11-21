@@ -1,10 +1,10 @@
 export interface Damages {
 
   doubleDamageFrom: string[]
-  doubleDamageTo: string[]
+  //doubleDamageTo: string[]
   halfDamageFrom: string[]
-  halfDamageTo: string[]
+  //halfDamageTo: string[]
   noDamageFrom: string[]
-  noDamageTo: string[]
+  //noDamageTo: string[]
 
 }
