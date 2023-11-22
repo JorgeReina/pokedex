@@ -69,7 +69,7 @@ export class PokemonComponent implements OnInit{
       this.setData(),
       this.setDescription()
     ]).pipe(
-      delay(200),
+      delay(500),
       tap(() => {
 
         if (this.infoPokemon.types.length > 1) {
@@ -153,11 +153,26 @@ export class PokemonComponent implements OnInit{
   //  METDODO QUE UNIFICA LAS TABLAS
   joinTableDamage() {
 
+    //  RELLENAR LOS ARRAYS EN 
     this.tableDamagesFull.doubleDamageFrom = Array.from(new Set([...this.tableDamages.doubleDamageFrom,...this.tableDamages2.doubleDamageFrom]))
 
     this.tableDamagesFull.halfDamageFrom = Array.from(new Set([...this.tableDamages.halfDamageFrom, ...this.tableDamages2.halfDamageFrom]));
 
     this.tableDamagesFull.noDamageFrom = Array.from(new Set([...this.tableDamages.noDamageFrom,...this.tableDamages2.noDamageFrom]));
+
+    // Copiar los arrays para evitar modificar el original durante el filtrado - ¡NO MOVER DE SITIO!
+    const tempDoubleDamageFrom = [...this.tableDamagesFull.doubleDamageFrom];
+    const tempHalfDamageFrom = [...this.tableDamagesFull.halfDamageFrom];
+
+    // Filtrar los duplicados en doubleDamageFrom
+    this.tableDamagesFull.doubleDamageFrom = this.tableDamagesFull.doubleDamageFrom.filter(
+      (type) => !tempHalfDamageFrom.includes(type)
+    );
+
+    // Filtrar los duplicados en halfDamageFrom
+    this.tableDamagesFull.halfDamageFrom = tempHalfDamageFrom.filter(
+      (type) => !tempDoubleDamageFrom.includes(type)
+    );
 
     // Encontrar duplicados y agregar a los arrays correspondientes en tableDamagesFull
     this.tableDamages.doubleDamageFrom.forEach((type) => {
@@ -182,7 +197,7 @@ export class PokemonComponent implements OnInit{
       (type) => !this.tableDamagesFull.quarterDamageFrom.includes(type)
     );
 
-    // Eliminar tipos en halfDamageFrom si ya están en quarterDamageFrom
+    // Eliminar tipos en doubleDamageFrom si ya están en noDamageFrom
     this.tableDamagesFull.doubleDamageFrom = this.tableDamagesFull.doubleDamageFrom.filter(
       (type) => !this.tableDamagesFull.noDamageFrom.includes(type)
     );

@@ -8,7 +8,10 @@
         <p>Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}}</p> 
         <div class="center-content" *ngIf="infoPokemon.types.length > 0">
           <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
-          <img [src]="getImagePath(infoPokemon.types[0])" class="pokemon-image" alt="">
+          <br><br>
+          <div *ngIf="infoPokemon.types.length > 0">
+            <img class="pokemon-image" *ngFor="let type of infoPokemon.types, let i = index" [src]="getImagePath(infoPokemon.types[i])" alt="">
+          </div>
         </div>  
       </div>
       <br>
@@ -32,13 +35,6 @@
     </div>
   </div>
   <div class="types">
-    
-    <!--
-      <p class="marginleft">Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
-      <p class="marginleft">Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
-      <p class="marginleft">Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
-    -->
-    
     
     <div class="filter">
       <p>Muy Debil contra: </p>
