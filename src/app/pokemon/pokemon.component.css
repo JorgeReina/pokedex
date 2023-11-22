@@ -231,3 +231,8 @@ img[type="Dark"]{
 }
 
 /* HASTA AQUI DISEÑO DE TIPOS */
+
+.filter {
+  margin: 2%;
+  text-align: center;
+}

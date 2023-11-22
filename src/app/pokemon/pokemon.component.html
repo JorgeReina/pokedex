@@ -33,17 +33,34 @@
   </div>
   <div class="types">
     
+    <!--
       <p class="marginleft">Debil contra 1ºTipo: {{tableDamages.doubleDamageFrom}} | 2ºTipo: {{tableDamages2.doubleDamageFrom}}</p>
       <p class="marginleft">Fuerte contra: {{tableDamages.halfDamageFrom}} | 2ºTipo: {{tableDamages2.halfDamageFrom}}</p>
       <p class="marginleft">Inmune a: {{tableDamages.noDamageFrom}} | 2ºTipo: {{tableDamages2.noDamageFrom}}</p>
-    
-    <!--
-      <p class="marginleft">Muy Debil contra: {{tableDamagesFull.x4}}</p>
-      <p class="marginleft">Debil contra: {{tableDamagesFull.doubleDamageFrom}}</p>
-      <p class="marginleft">Fuerte contra: {{tableDamagesFull.halfDamageFrom}}</p>
-      <p class="marginleft">Muy Fuerte contra: {{tableDamagesFull.quarterDamageFrom}}</p>
-      <p class="marginleft">Inmune a: {{tableDamagesFull.noDamageFrom}}</p>
     -->
+    
+    
+    <div class="filter">
+      <p>Muy Debil contra: </p>
+      <button class="marginleft" *ngFor="let item of tableDamagesFull.x4"  [attr.type]="item" >{{item}}</button>
+    </div>
+    <div class="filter">
+      <p>Debil contra: </p>
+      <button class="marginleft" *ngFor="let item of tableDamagesFull.doubleDamageFrom"  [attr.type]="item" >{{item}}</button>
+    </div>
+    <div class="filter">
+      <p>Fuerte contra: </p>
+      <button class="marginleft" *ngFor="let item of tableDamagesFull.halfDamageFrom"  [attr.type]="item" >{{item}}</button>
+    </div>
+    <div class="filter">
+      <p>Muy Fuerte contra: </p>
+      <button class="marginleft" *ngFor="let item of tableDamagesFull.quarterDamageFrom"  [attr.type]="item" >{{item}}</button>
+    </div>
+    <div class="filter">
+      <p>Inmune contra: </p>
+      <button class="marginleft" *ngFor="let item of tableDamagesFull.noDamageFrom"  [attr.type]="item" >{{item}}</button>
+    </div>
+    
   </div>
 </div>
 
