@@ -7,8 +7,9 @@
       <div class="left-content">
         <p>Nº {{infoPokemon.id.toString().padStart(3, '0')}} &nbsp;  {{infoPokemon.name | titlecase}}</p> 
         <div class="center-content" *ngIf="infoPokemon.types.length > 0">
-          <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button>
+          <button *ngFor="let type of infoPokemon.types" [attr.type]="type">{{ type }}</button><br><br>
           <img [src]="getImagePath(infoPokemon.types[0])" class="pokemon-image" alt="">
+          <img [src]="getImagePath(infoPokemon.types[1])" class="pokemon-image" alt="">
         </div>  
       </div>
       <br>

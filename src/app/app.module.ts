@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { FormsModule } from '@angular/forms';
+import { Pagina404Component } from './pagina404/pagina404.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     PokemonListComponent,
     PokemonComponent,
+    Pagina404Component,
   ],
   imports: [
     BrowserModule,
