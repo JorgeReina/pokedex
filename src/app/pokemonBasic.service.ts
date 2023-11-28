@@ -5,6 +5,8 @@ import { Pokemon } from './interface/pokemon';
 import { PokemonInfo } from './interface/pokemonInfo';
 import { Description } from './interface/description';
 import { Damages } from './interface/damages';
+import { EvolutionChain } from './interface/evolutionChain';
+import { Chain } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -65,9 +67,11 @@ export class PokemonBasicService {
       const filteredEntries = response.flavor_text_entries
         .filter((data: any) => data.version.name === "black" && data.language.name === "en")
         .map((filteredData: any) => filteredData.flavor_text);
+      const url = response.evolution_chain.url
 
       return {
-        description: filteredEntries
+        description: filteredEntries,
+        urlEvolutionChain: url,
       };
     }));
   }
@@ -91,6 +95,15 @@ export class PokemonBasicService {
         //halfDamageTo: response.damage_relations.half_damage_to.map((type: any) => type.name),
         noDamageFrom: response.damage_relations.no_damage_from.map((type: any) => type.name),
         //noDamageTo: response.damage_relations.no_damage_to.map((type: any) => type.name),
+      };
+    }));
+  }
+
+  public getChainEvolution(url: string): Observable<EvolutionChain> {
+    return this.http.get(url)
+    .pipe(map((response: any) => {
+      return {
+        chainEvolution: response.id
       };
     }));
   }

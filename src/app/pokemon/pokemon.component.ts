@@ -32,7 +32,8 @@ export class PokemonComponent implements OnInit{
   };
 
   descriptionPokemon: Description = {
-    description: ""
+    description: "",
+    urlEvolutionChain: []
   };
 
   tableDamages: Damages = {
@@ -69,7 +70,7 @@ export class PokemonComponent implements OnInit{
       this.setData(),
       this.setDescription()
     ]).pipe(
-      delay(500),
+      //delay(100),
       tap(() => {
 
         if (this.infoPokemon.types.length > 1) {
