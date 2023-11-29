@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EvolutionChain } from '../interface/evolutionChain';
 import { PokemonBasicService } from '../pokemonBasic.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { delay, forkJoin, tap } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { delay, forkJoin, tap } from 'rxjs';
   templateUrl: './evolution-chain.component.html',
   styleUrls: ['./evolution-chain.component.css']
 })
-export class EvolutionChainComponent implements OnInit{
+export class EvolutionChainComponent implements OnChanges{
 
   numberList: number = 1;
 
@@ -17,26 +17,36 @@ export class EvolutionChainComponent implements OnInit{
   urlEvolution = "";
 
   evolutionChain: EvolutionChain = {
-    chainEvolution: 0
+    name1: "",
+    name2: [],
+    name3: [],
+    chainEvolution: [],
   }
 
-  constructor(private pokemonBasicService: PokemonBasicService, private route: ActivatedRoute) { }
+  constructor(
+    private pokemonBasicService: PokemonBasicService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.numberList = params['id'];
-    });
-
-    console.log(this.urlEvolution)
-    this.setChainEvolution()
-    
-    //this.setChainEvolution()
+  ngOnChanges(changes: SimpleChanges) {
+    if ( changes['urlEvolution'] && !changes['urlEvolution'].previousValue) {
+      delay(500),this.setChainEvolution();
+    }
   }
 
   setChainEvolution() {
     this.pokemonBasicService.getChainEvolution(this.urlEvolution).subscribe(
       data => this.evolutionChain = data
     )
+  }
+
+  //  METODO QUE FUERZA LA ACTUALIZACIÓN DE LA PAGINA
+  navigateToPokemon(name: string) {
+    // Navegar a la misma ruta para forzar la actualización de la página
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/pokemon', name]);
+    });
   }
 
 }

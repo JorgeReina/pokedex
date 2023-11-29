@@ -99,11 +99,15 @@ export class PokemonBasicService {
     }));
   }
 
+  //  METODO QUE DEVUELVE LA CADENA EVOLUTIVA
   public getChainEvolution(url: string): Observable<EvolutionChain> {
     return this.http.get(url)
     .pipe(map((response: any) => {
       return {
-        chainEvolution: response.id
+        name1: response.chain.species.name,
+        name2: response.chain.evolves_to.map((data: any) => data.species.name),
+        name3: response.chain.evolves_to.map((data: any) => data.evolves_to.map((name: any) => name.species.name)),
+        chainEvolution: response.chain,
       };
     }));
   }

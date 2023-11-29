@@ -17,6 +17,10 @@ hr{
 .grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
+  background-color: rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 10px;
+  
 }
 
 .pokemon-container {

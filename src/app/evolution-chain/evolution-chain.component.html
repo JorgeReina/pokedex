@@ -1,1 +1,20 @@
-<p>{{evolutionChain.chainEvolution| json}}</p>
+<!--
+  <div *ngFor="let names of evolutionChain.name3">
+  <p [routerLink]="'/pokemon/'+ evolutionChain.name1">{{evolutionChain.name1 | titlecase}}</p>
+  <p *ngFor="let name of evolutionChain.name2" [routerLink]="'/pokemon/'+ evolutionChain.name2" target="_self">{{name | titlecase}}</p>
+  <div *ngFor="let name of names">
+    <p *ngIf="name">{{name | titlecase}}</p>
+  </div>
+</div>
+-->
+
+<div>
+  <p (click)="navigateToPokemon(evolutionChain.name1)">{{evolutionChain.name1 | titlecase}}</p>
+  <p *ngFor="let name2 of evolutionChain.name2" (click)="navigateToPokemon(name2)" target="_self">{{name2 | titlecase}}</p>
+  <div *ngFor="let names of evolutionChain.name3">
+    <div *ngFor="let name3 of names">
+      <p *ngIf="name3" (click)="navigateToPokemon(name3)">{{name3 | titlecase}}</p>
+    </div>
+  </div>
+</div>
+

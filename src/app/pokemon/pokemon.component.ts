@@ -70,7 +70,7 @@ export class PokemonComponent implements OnInit{
       this.setData(),
       this.setDescription()
     ]).pipe(
-      //delay(100),
+      delay(500),
       tap(() => {
 
         if (this.infoPokemon.types.length > 1) {
