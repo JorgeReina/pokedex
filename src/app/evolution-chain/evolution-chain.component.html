@@ -8,13 +8,65 @@
 </div>
 -->
 
-<div>
+<!--
+  <div class="pokemon-list-container">
+  <div class="pokemon-container">
+    <p>{{evolutionChain.name1}}</p>
+  </div>
+  
+  <div class="pokemon-container" *ngFor="let item of evolutionChain.name2; let i = index;">
+    <p>{{item}}</p>
+    <p>{{evolutionDetail.trigger}}</p>
+    <p>{{evolutionDetail.min_level}}</p>
+  </div>
+  
+  <div class="pokemon-container" *ngFor="let item of evolutionChain.name3; let i = index;">
+    <p>{{item}}</p>
+    <p>{{evolutionDetail2.trigger[i]}}</p>
+    <p *ngIf="item">{{evolutionDetail2.min_level}}</p>
+    <p>{{evolutionDetail2.item[i]}}</p>
+  </div>
+</div>
+-->
+
+
+<!--
+  <div>
   <p (click)="navigateToPokemon(evolutionChain.name1)">{{evolutionChain.name1 | titlecase}}</p>
+  <p>{{evolutionDetail.trigger[0]}} {{evolutionDetail.min_level}}</p>
   <p *ngFor="let name2 of evolutionChain.name2" (click)="navigateToPokemon(name2)" target="_self">{{name2 | titlecase}}</p>
+  <p>{{evolutionDetail2.trigger}} {{evolutionDetail2.min_level}}</p>
   <div *ngFor="let names of evolutionChain.name3">
     <div *ngFor="let name3 of names">
       <p *ngIf="name3" (click)="navigateToPokemon(name3)">{{name3 | titlecase}}</p>
     </div>
   </div>
 </div>
+-->
+
+
+
+  <div>
+  <table>
+    <tr>
+      <th>1º Evolution</th>
+      <th>2º Evolution</th>
+      <th>Detail</th>
+      <th>3º Evolution</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let name2 of evolutionChain.name2" >
+      <td (click)="navigateToPokemon(evolutionChain.name1)">{{evolutionChain.name1 | titlecase}}</td>
+      <td (click)="navigateToPokemon(name2)" target="_self">{{name2 | titlecase}}</td>
+      <td>{{evolutionDetail.trigger}} {{evolutionDetail.min_level}}</td>
+      <div *ngFor="let names of evolutionChain.name3">
+        <div *ngFor="let name3 of names">
+          <td *ngIf="name3" (click)="navigateToPokemon(name3)">{{name3 | titlecase}}</td>
+        </div>
+      </div>
+      <td>{{evolutionDetail2.trigger}} {{evolutionDetail2.min_level}}</td>
+    </tr>
+  </table>
+</div>
+
 

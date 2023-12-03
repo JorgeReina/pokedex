@@ -7,6 +7,7 @@ import { Description } from './interface/description';
 import { Damages } from './interface/damages';
 import { EvolutionChain } from './interface/evolutionChain';
 import { Chain } from '@angular/compiler';
+import { EvolutionDetails } from './interface/evolutionDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -108,6 +109,60 @@ export class PokemonBasicService {
         name2: response.chain.evolves_to.map((data: any) => data.species.name),
         name3: response.chain.evolves_to.map((data: any) => data.evolves_to.map((name: any) => name.species.name)),
         chainEvolution: response.chain,
+      };
+    }));
+  }
+
+  //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR
+  public getEvolutionDetail(url: string): Observable<EvolutionDetails> {
+    return this.http.get(url)
+    .pipe(map((response: any) => {
+      return {
+        gender: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.gender)), 
+        held_item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.held_item)), 
+        item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((date2: any) => date2.item)), 
+        known_move: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move)), 
+        known_move_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move_type)), 
+        location: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.location)), 
+        min_affection: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_affection)), 
+        min_beauty: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_beauty)), 
+        min_happiness: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_happiness)), 
+        min_level: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_level)), 
+        needs_overworld_rain: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.needs_overworld_rain)), 
+        party_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_species)), 
+        party_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_type)), 
+        relative_physical_stats: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.relative_physical_stats)), 
+        time_of_day: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.time_of_day)), 
+        trade_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trade_species)), 
+        turn_upside_down: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.turn_upside_down)),
+        trigger: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trigger.name)),
+      };
+    }));
+  }
+
+  //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR A 3º EVO
+  public getEvolutionDetail2(url: string): Observable<EvolutionDetails> {
+    return this.http.get(url)
+    .pipe(map((response: any) => {
+      return {
+        gender: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.gender)), 
+        held_item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.held_item)), 
+        item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((name:any) => name.item)), 
+        known_move: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move)), 
+        known_move_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move_type)), 
+        location: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.location)), 
+        min_affection: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_affection)), 
+        min_beauty: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_beauty)), 
+        min_happiness: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_happiness)), 
+        min_level: response.chain.evolves_to.map((data: any) => data.evolves_to.map((data2: any) => data2.evolution_details.map((level: any) => level.min_level))), 
+        needs_overworld_rain: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.needs_overworld_rain)), 
+        party_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_species)), 
+        party_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_type)), 
+        relative_physical_stats: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.relative_physical_stats)), 
+        time_of_day: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.time_of_day)), 
+        trade_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trade_species)), 
+        turn_upside_down: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.turn_upside_down)),
+        trigger: response.chain.evolves_to.map((data: any) => data.evolves_to.map((data2: any) => data2.evolution_details.map((trigger: any) => trigger.trigger.name))),
       };
     }));
   }
