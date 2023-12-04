@@ -12,8 +12,6 @@ import { Img } from '../interface/img';
 })
 export class EvolutionChainComponent implements OnChanges{
 
-  numberList: number = 1;
-
   @Input()
   urlEvolution = "";
 
@@ -26,7 +24,6 @@ export class EvolutionChainComponent implements OnChanges{
   imgEvo1: Img = {
     img: "",
   }
-
 
   constructor(
     private pokemonBasicService: PokemonBasicService,

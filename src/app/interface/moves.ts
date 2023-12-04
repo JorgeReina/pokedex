@@ -1,6 +1,7 @@
 export interface Moves {
+  [x: string]: any;
   
   move: any[],
-  details: any[],
+  detail: any[],
 
 }

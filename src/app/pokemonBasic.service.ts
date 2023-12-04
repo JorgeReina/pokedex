@@ -9,6 +9,8 @@ import { EvolutionChain } from './interface/evolutionChain';
 import { Chain } from '@angular/compiler';
 import { EvolutionDetails } from './interface/evolutionDetails';
 import { Img } from './interface/img';
+import { Moves } from './interface/moves';
+import { MovesDetails } from './interface/moveDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -109,8 +111,25 @@ export class PokemonBasicService {
     }));
   }
 
-  public getMoves(id: number) {
-    
+  public getMoves(id: number): Observable<Moves> {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+      .pipe(map((response: any) => {
+        return {
+          move: response.moves,
+          detail: response.moves.version_group_details
+        }
+      }))
+  }
+
+  public getMovesDetails(url: string): Observable<MovesDetails> {
+    return this.http.get(`${url}`)
+      .pipe(map((response: any) => {
+        return {
+          categoria: response.damage_class,
+          potencia: response.power,
+          precison: response.accuracy,
+        }
+      }))
   }
 
   //  ASIGNACION DE GENERACION (NO MUY UTIL)

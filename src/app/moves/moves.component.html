@@ -1,1 +1,57 @@
-<p>moves works!</p>
+<h2>Moves Table by Level-up</h2>
+
+<p>{{moveDetail | json}}</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Obtain by</th>
+    <th>Level-up/th>
+  </tr>
+  <tr>
+      <td>
+        <div *ngFor="let item of movesLevel.move">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'black-white'">{{item.move.name}}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let item of movesLevel.move">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'black-white'">{{detail.move_learn_method.name}}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+
+      </td>
+  </tr>
+</table>
+
+<h2>Moves Table by MT/MO</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Obtain by</th>
+  </tr>
+  <tr>
+      <td>
+        <div *ngFor="let item of movesLevel.move">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'black-white'">{{item.move.name}}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let item of movesLevel.move">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'black-white'">{{detail.move_learn_method.name}}</div>
+          </div>
+        </div>
+      </td>
+  </tr>
+</table>
+
+
