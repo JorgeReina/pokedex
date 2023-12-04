@@ -8,6 +8,7 @@ import { Damages } from './interface/damages';
 import { EvolutionChain } from './interface/evolutionChain';
 import { Chain } from '@angular/compiler';
 import { EvolutionDetails } from './interface/evolutionDetails';
+import { Img } from './interface/img';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,15 @@ export class PokemonBasicService {
       }));
   }
 
+  public getImg(name: string): Observable<Img>{
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+      .pipe(map((response: any) => {
+        return {
+          img: response.sprites.other['official-artwork'].front_default,
+        };
+      }));
+  }
+
   //  METODO QUE DEVUELVE LA DESCRIPICION DEL POKEMON
   public getDescription(id: number): Observable<Description> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
@@ -91,11 +101,8 @@ export class PokemonBasicService {
     .pipe(map((response: any) => {
       return {
         doubleDamageFrom: response.damage_relations.double_damage_from.map((type: any) => type.name),
-        //doubleDamageTo: response.damage_relations.double_damage_to.map((type: any) => type.name),
         halfDamageFrom: response.damage_relations.half_damage_from.map((type: any) => type.name),
-        //halfDamageTo: response.damage_relations.half_damage_to.map((type: any) => type.name),
         noDamageFrom: response.damage_relations.no_damage_from.map((type: any) => type.name),
-        //noDamageTo: response.damage_relations.no_damage_to.map((type: any) => type.name),
       };
     }));
   }
@@ -106,14 +113,13 @@ export class PokemonBasicService {
     .pipe(map((response: any) => {
       return {
         name1: response.chain.species.name,
-        name2: response.chain.evolves_to.map((data: any) => data.species.name),
-        name3: response.chain.evolves_to.map((data: any) => data.evolves_to.map((name: any) => name.species.name)),
-        chainEvolution: response.chain,
+        chainEvolution: response.chain.evolves_to,
       };
     }));
   }
 
   //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR
+  /*
   public getEvolutionDetail(url: string): Observable<EvolutionDetails> {
     return this.http.get(url)
     .pipe(map((response: any) => {
@@ -139,8 +145,10 @@ export class PokemonBasicService {
       };
     }));
   }
+  */
 
   //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR A 3º EVO
+  /*
   public getEvolutionDetail2(url: string): Observable<EvolutionDetails> {
     return this.http.get(url)
     .pipe(map((response: any) => {
@@ -166,6 +174,7 @@ export class PokemonBasicService {
       };
     }));
   }
+  */
 
   //  ASIGNACION DE GENERACION (NO MUY UTIL)
   public assignGeneration(generation: any): any {

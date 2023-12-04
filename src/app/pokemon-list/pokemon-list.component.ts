@@ -70,7 +70,7 @@ export class PokemonListComponent implements OnInit{
     
   }
 
-  // Funcion getDataFiltered
+  // Funcion getDataFiltered (Buscador)
   getFunctionDataFiltered (number1: number, number2: number): Pokemon[] {
     return this.data.filter((pokemon) => {
       const genMatch = pokemon.id > number1 && pokemon.id <= number2;

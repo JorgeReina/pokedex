@@ -22,10 +22,9 @@
       <br>
       <button class="shiny" (click)="toggleShiny()">Shiny</button>
       <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
-      <p class="left-content">Weight: {{infoPokemon.weight}} Kg</p>
+      <p class="left-content">Weight: {{infoPokemon.weight / 10}} Kg</p>
       <div>
         <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
-        <p>{{descriptionPokemon.urlEvolutionChain}}</p>
       </div>
     </div>
   </div>

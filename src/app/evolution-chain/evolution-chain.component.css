@@ -4,11 +4,13 @@ th, td {
 
 .pokemon-container {
   margin: 10px;
+  height: auto;
+  width: 15%;
+  border-radius: 12px;
+  cursor: pointer;
   text-align: center;
   border-color: (221, 221, 221);
   background-color: rgb(221, 221, 221);
-  height: auto;
-  border-radius: 12px;
   box-shadow: 0 0 10px rgb(101, 101, 101);
 }
 
