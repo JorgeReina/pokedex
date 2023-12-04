@@ -30,7 +30,7 @@
   </div>
   
   <div *ngFor="let item of evolutionChain.chainEvolution">
-    <div class="pokemon-container">
+    <div class="">
       <div *ngIf="item.evolves_to.length > 0">
         <div *ngFor="let evo3 of item.evolves_to" (click)="navigateToPokemon(evo3.species.name)" >
         <p>{{evo3.species.name}}</p>
