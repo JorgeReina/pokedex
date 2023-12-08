@@ -17,7 +17,7 @@ hr{
 .grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(255, 255, 255);
   border-radius: 12px;
   padding: 10px;
   
@@ -43,16 +43,15 @@ hr{
   
 }
 .stats{
-  border: 3px solid orangered;
   font-family: 'Oswald', sans-serif;
 }
 .types{
-  border: 3px solid green;
   font-family: 'Oswald', sans-serif;
-  
+  border-radius: 12px;
 }
 .marginleft{
   margin-left: 4%;
+  margin-bottom: 2%;
 }
 .border{
   border: 2px solid black;
@@ -119,7 +118,7 @@ button[type="Normal"] {
 }
 
 button[type="Grass"] {
-  background-color: #78C850; /* Planta */
+  background-color: rgb(66, 202, 66);/* Planta */
 }
 
 button[type="Psychic"] {
@@ -157,19 +156,20 @@ button[type="Dark"] {
 /* Color fondo segun tipo*/
 
 div[type="Steel"] {
-  background-color: #B8B8D0; /* Acero */
+  background-image: linear-gradient(180deg, rgb(133, 134, 133)40%, rgb(255, 255, 255)80%);
 }
 
 div[type="Water"] {
-  background-color: #6890F0; /* Agua */
+  background-image: linear-gradient(180deg, rgb(55, 105, 206)40%, rgb(203, 220, 255)80%);
 }
 
 div[type="Bug"] {
-  background-color: #A8B820; /* Bicho */
+  background-image: linear-gradient(180deg, (#A8B820)40%, rgb(223, 218, 139)80%); 
+  /* Bicho */
 }
 
 div[type="Dragon"] {
-  background-color: #7038F8; /* Dragón */
+  background-image: linear-gradient(180deg, rgb(124, 39, 236)40%, rgb(224, 206, 255)80%); 
   color: white;
 }
 
@@ -194,7 +194,7 @@ div[type="Normal"] {
 }
 
 div[type="Grass"] {
-  background-color: #78C850; /* Planta */
+  background-image: linear-gradient(180deg, rgb(58, 206, 55)40%, rgb(164, 246, 157)80%); /* Planta */
 }
 
 div[type="Psychic"] {

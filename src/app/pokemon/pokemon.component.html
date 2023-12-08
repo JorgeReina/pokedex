@@ -34,9 +34,9 @@
       <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
     </div>
   </div>
-  <div class="types">
+  <div [attr.type]="infoPokemon.types[0]" class="types">
     
-    <div class="filter">
+    <div  class="filter" *ngIf="infoPokemon.types.length > 0"> <p>TABLA DE TIPOS</p> 
       <p>Muy Debil contra: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.x4"  [attr.type]="item" >{{item}}</button>
     </div>

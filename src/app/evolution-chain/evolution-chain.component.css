@@ -1,22 +1,28 @@
-th, td {
-  padding: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+* {
+  font-family: 'Pixelify Sans', sans-serif;
 }
 
 .pokemon-container {
-  margin: 10px;
+  margin: 1%;
   height: auto;
-  width: 15%;
-  border-radius: 12px;
+  width: auto;
   cursor: pointer;
   text-align: center;
-  border-color: (221, 221, 221);
   background-color: rgb(221, 221, 221);
   box-shadow: 0 0 10px rgb(101, 101, 101);
+  flex-basis: 26%;
+  border-radius: 180px;
+  background-image: linear-gradient(to bottom, #d86d6d, #d86d6d, #d86d6d, #d86d6d, #d86d6d,#d86d6d,#ffff, #ffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 
 .pokemon-list-container {
-  margin: auto;
+  margin-left: auto;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
 }
+h2{
+  text-align: center;
+}
+

@@ -1,13 +1,13 @@
-<h2>Evolution Chain:</h2>
-<div class="pokemon-list-container">
+<h2>Evolution Chain</h2>
+<div class="pokemon-list-container" >
   <div class="pokemon-container" (click)="navigateToPokemon(evolutionChain.name1)">
     <p>{{evolutionChain.name1 | titlecase}}</p>
     <img src="" alt="">
   </div>
   
-  <div *ngFor="let item of evolutionChain.chainEvolution" class="pokemon-container" (click)="navigateToPokemon(item.species.name)">
-    <p>{{item.species.name | titlecase}}</p>
-    <div *ngFor="let item2 of item.evolution_details">
+  <div class="pokemon-container" *ngFor="let item of evolutionChain.chainEvolution"  (click)="navigateToPokemon(item.species.name)">
+    
+    <div  *ngFor="let item2 of item.evolution_details">
       <p *ngIf="item2.gender">{{item2.gender}}</p>
       <p *ngIf="item2.held_item">{{item2.held_item.name}}</p>
       <p *ngIf="item2.item">{{item2.item.name}}</p>
@@ -17,7 +17,7 @@
       <p *ngIf="item2.min_affection">{{item2.min_affection}}</p>
       <p *ngIf="item2.min_beauty">{{item2.min_beauty}}</p>
       <p *ngIf="item2.min_happiness">{{item2.min_happiness}}</p>
-      <p *ngIf="item2.min_level">{{item2.min_level}} minimum level</p>
+      <p *ngIf="item2.min_level">Minimum Level: {{item2.min_level}} </p>
       <p *ngIf="item2.needs_overworld_rain">{{item2.needs_overworld_rain}}</p>
       <p *ngIf="item2.party_species">{{item2.party_species}}</p>
       <p *ngIf="item2.party_type">{{item2.party_type}}</p>
@@ -27,13 +27,15 @@
       <p>{{item2.trigger.name}} </p>
       <p *ngIf="item2.turn_upside_down">{{item2.turn_upside_down}}</p>
     </div>
+    <div>⬇️</div>
+    <div>
+      <p>{{item.species.name | titlecase}}</p>
+      </div>
   </div>
   
-  <div *ngFor="let item of evolutionChain.chainEvolution">
-    <div class="pokemon-container">
+  <div class="pokemon-container" *ngFor="let item of evolutionChain.chainEvolution">
       <div *ngIf="item.evolves_to.length > 0">
         <div *ngFor="let evo3 of item.evolves_to" (click)="navigateToPokemon(evo3.species.name)" >
-        <p>{{evo3.species.name}}</p>
         <div *ngFor="let item3 of evo3.evolution_details">
           <p *ngIf="item3.gender">{{item3.gender}}</p>
           <p *ngIf="item3.held_item">{{item3.held_item}}</p>
@@ -44,7 +46,7 @@
           <p *ngIf="item3.min_affection">{{item3.min_affection}}</p>
           <p *ngIf="item3.min_beauty">{{item3.min_beauty}}</p>
           <p *ngIf="item3.min_happiness">{{item3.min_happiness}}</p>
-          <p *ngIf="item3.min_level">{{item3.min_level}} minimum level</p>
+          <p *ngIf="item3.min_level">Minimum Level: {{item3.min_level}} </p>
           <p *ngIf="item3.needs_overworld_rain">{{item3.needs_overworld_rain}}</p>
           <p *ngIf="item3.party_species">{{item3.party_species}}</p>
           <p *ngIf="item3.party_type">{{item3.party_type}}</p>
@@ -54,9 +56,11 @@
           <p>{{item3.trigger.name}} </p>
           <p *ngIf="item3.turn_upside_down">{{item3.turn_upside_down}}</p>
         </div>
+        <div>⬇️</div>
+        <p>{{evo3.species.name}}</p>
         </div>
       </div>
-    </div>
+    
     </div>
 </div>
 

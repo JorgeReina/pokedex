@@ -1,13 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
 div{
   margin: 1%;
 }
 
 .footer {
-  background-color: rgb(232, 39, 39);
   width: auto;
   padding-left: 2%;
+  margin-left: 18%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sizeImage{
+  width: 15%;
+  height: 15%;
+}
+.title{
+  text-align: center;
+  margin-top: 6%;
+}
+.text{
+  margin-top: 10%;
+  width: 60%;
+  height: 30%;
 }
 
-p {
-  color: white;
+.row {
+  flex-basis: 20%;
+}
+
+* {
+  font-family: 'Pixelify Sans', sans-serif;
 }
