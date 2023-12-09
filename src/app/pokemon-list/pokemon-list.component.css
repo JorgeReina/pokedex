@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 
+.sizeBombilla{
+  width: 30px;
+}
+.oscuro{
+  background-color: rgb(255, 255, 255);
+  border-radius: 160px;
+  border: 0px;
+}
+.modo-claro{
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+.modo-oscuro{
+  background-color: #605f5f;
+  color: rgb(255, 255, 255);
+}
+
+
+
 .pokemon-list-container {
   margin: auto;
   width: 90%;
@@ -15,7 +34,7 @@
   margin: 10px;
   text-align: center;
   border-color: (221, 221, 221);
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(183, 183, 183);
   height: 300px;
   border-radius: 180px;
   box-shadow: 0 0 10px rgb(101, 101, 101);

@@ -10,6 +10,7 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { FormsModule } from '@angular/forms';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
+import { TraducePipe } from './traduce.pipe';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { EvolutionChainComponent } from './evolution-chain/evolution-chain.compo
     PokemonListComponent,
     PokemonComponent,
     EvolutionChainComponent,
+    TraducePipe,
   ],
   imports: [
     BrowserModule,

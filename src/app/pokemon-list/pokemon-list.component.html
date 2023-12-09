@@ -1,3 +1,10 @@
+<div [ngClass]="{'modo-claro': !modoOscuro, 'modo-oscuro': modoOscuro}">
+  <button class="oscuro" (click)="cambiarModo()">
+    <img class="sizeBombilla" src="/assets/images/bombilla.png">
+  </button>
+
+
+
 <!--Buscador por Nombre-->
 <div class="search-container">
   <input class="search-input" type="search" placeholder="Vaporeon" [(ngModel)] = "filterNomre" (keyup)="filterNomre"/>
@@ -30,4 +37,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

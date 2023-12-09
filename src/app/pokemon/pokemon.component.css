@@ -3,6 +3,15 @@
 hr{
   background-color: #B8A038;
 }
+.sizeBombilla{
+  width: 30px;
+}
+.oscuro{
+  background-color: rgb(255, 255, 255);
+  border-radius: 160px;
+  border: solid 0px;
+}
+
 .row {
   flex-basis: 25%;
 }
@@ -17,10 +26,18 @@ hr{
 .grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
-  background-color: rgb(255, 255, 255);
   border-radius: 12px;
   padding: 10px;
   
+}
+
+.modo-claro{
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+.modo-oscuro{
+  background-color: #605f5f;
+  color: rgb(255, 255, 255);
 }
 
 .pokemon-container {
@@ -71,6 +88,21 @@ hr{
 
 
 /* FIN DISEÑO INFO E IMG BASIC DEL POKEMON */
+
+/*BARRAS STATS*/
+.stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.barra-hp {
+  width: var(stats)px;
+  height: 20px; /* Ajusta la altura según sea necesario */
+  background-color: rgb(19, 130, 34);
+  margin-bottom: 5px; /* Espacio entre barras */
+}
+
+
 
 /* DISEÑO Y COLORES DE LOS TIPOS */
 
@@ -174,65 +206,63 @@ div[type="Dragon"] {
 }
 
 div[type="Electric"] {
-  background-color: #F8D030; /* Eléctrico */
+  background-image: linear-gradient(180deg, #F8D030 40%, rgb(242, 255, 127)80%); 
 }
 
 div[type="Ghost"] {
-  background-color: #705898; /* Fantasma */
+  background-image: linear-gradient(180deg, #705898 40%, rgb(195, 126, 213)80%); 
 }
 
 div[type="Fire"] {
-  background-color: #F08030; /* Fuego */
+  background-image: linear-gradient(180deg, #F08030 40%, rgb(213, 184, 126)80%); 
 }
 
 div[type="Ice"] {
-  background-color: #98D8D8; /* Hielo */
+  background-image: linear-gradient(180deg, #32d5d5 40%, rgb(162, 202, 208)80%); 
 }
 
 div[type="Normal"] {
-  background-color: #A8A878; /* Normal */
+  background-image: linear-gradient(180deg, #7e7e52 40%, rgb(208, 208, 162)80%); 
 }
 
 div[type="Grass"] {
-  background-image: linear-gradient(180deg, rgb(58, 206, 55)40%, rgb(164, 246, 157)80%); /* Planta */
+  background-image: linear-gradient(180deg, rgb(58, 206, 55)40%, rgb(164, 246, 157)80%);
 }
 
 div[type="Psychic"] {
-  background-color: #F85888; /* Psíquico */
+  background-image: linear-gradient(180deg,#F85888 40%, rgb(246, 157, 224)80%); 
 }
 
 div[type="Rock"] {
-  background-color: #B8A038; /* Roca */
+  background-image: linear-gradient(180deg,#B8A038 40%, rgb(246, 246, 157)80%); 
 }
 
 div[type="Ground"] {
-  background-color: #E0C068; /* Tierra */
+  background-image: linear-gradient(180deg,#E0C068 40%, rgb(246, 246, 157)80%); 
 }
 
 div[type="Fighting"] {
-  background-color: #C03028; /* Lucha */
+  background-image: linear-gradient(180deg,#C03028 40%, rgb(246, 157, 157)80%); 
 }
 
 div[type="Fairy"] {
-  background-color: #EE99AC; /* Hada */
+  background-image: linear-gradient(180deg,#EE99AC 40%, rgb(255, 211, 211)80%); 
 }
 
 div[type="Poison"] {
-  background-color: #A040A0; /* Veneno */
+  background-image: linear-gradient(180deg,#A040A0 40%, rgb(247, 154, 240)80%); 
 }
 
 div[type="Flying"] {
-  background-color: #A890F0; /* Volador */
+  background-image: linear-gradient(180deg,#A890F0 40%, rgb(216, 205, 244)80%); 
+
 }
 
 div[type="Dark"] {
-  background-color: #333333; /* siniestro */
+  background-image: linear-gradient(180deg,#333333 40%, rgb(106, 106, 106)80%); 
   color: white; 
 }
-/*Imagen*/
-img[type="Dark"]{
-  src: url(/assets/images/types/dark.png);
-}
+
 
 /* HASTA AQUI DISEÑO DE TIPOS */
 

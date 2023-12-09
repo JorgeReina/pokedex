@@ -13,7 +13,7 @@
   box-shadow: 0 0 10px rgb(101, 101, 101);
   flex-basis: 26%;
   border-radius: 180px;
-  background-image: linear-gradient(to bottom, #d86d6d, #d86d6d, #d86d6d, #d86d6d, #d86d6d,#d86d6d,#ffff, #ffff, #ffffff, #ffffff, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #d86d6d, #d86d6d, #d86d6d, #d86d6d, #d86d6d,#d86d6d,#9b9b9b, #9b9b9b, #9b9b9b, #9b9b9b, #9b9b9b, #9b9b9b);
 }
 
 .pokemon-list-container {

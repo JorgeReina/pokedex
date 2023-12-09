@@ -1,5 +1,11 @@
-<hr>
+
+<div [ngClass]="{'modo-claro': !modoOscuro, 'modo-oscuro': modoOscuro}"><hr>
 <br>
+<!--<button (click)="cambiarIdioma('es')">Español</button>
+<button (click)="cambiarIdioma('en')">English</button>-->
+
+  <button class="oscuro" (click)="cambiarModo()"><img class="sizeBombilla" src="/assets/images/bombilla.png"></button>
+
 <div class="grid-container">
   <div [attr.type]="infoPokemon.types[0]" class="pokemon-container">
     <br>
@@ -21,47 +27,55 @@
       </div>
       <br>
       <button class="shiny" (click)="toggleShiny()">Shiny</button>
-      <p class="left-content">Height: {{infoPokemon.height / 10}} meters</p>
+      <p class="left-content">Height: {{infoPokemon.height / 10}} mts</p>
       <p class="left-content">Weight: {{infoPokemon.weight / 10}} Kg</p>
       <div>
         <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
       </div>
     </div>
   </div>
+  <!--<div class="stats">
+    <div class="barra-hp" [ngStyle]="{'--hp-value': infoPokemon.nameStats[0]}"></div>
+    <div class="barra-ataque" [ngStyle]="{'--ataque-value': infoPokemon.baseStats}"></div>
+  </div>-->
   <div class="stats">
     <p class="marginleft">HABILITIES: <br></p>
     <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
       <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
     </div>
-  </div>
-  <div [attr.type]="infoPokemon.types[0]" class="types">
+  
+  <div class="types">
     
-    <div  class="filter" *ngIf="infoPokemon.types.length > 0"> <p>TABLA DE TIPOS</p> 
-      <p>Muy Debil contra: </p>
+    <div class="filter" *ngIf="infoPokemon.types.length > 0"> <p> TYPES TABLE </p> 
+    </div>
+    <div class="filter">
+      <p>Very weak against: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.x4"  [attr.type]="item" >{{item}}</button>
     </div>
     <div class="filter">
-      <p>Debil contra: </p>
+      <p>Weak against: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.doubleDamageFrom"  [attr.type]="item" >{{item}}</button>
     </div>
     <div class="filter">
-      <p>Fuerte contra: </p>
+      <p>Strong against: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.halfDamageFrom"  [attr.type]="item" >{{item}}</button>
     </div>
     <div class="filter">
-      <p>Muy Fuerte contra: </p>
+      <p>Very Strong against: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.quarterDamageFrom"  [attr.type]="item" >{{item}}</button>
     </div>
     <div class="filter">
-      <p>Inmune contra: </p>
+      <p>Immune contra: </p>
       <button class="marginleft" *ngFor="let item of tableDamagesFull.noDamageFrom"  [attr.type]="item" >{{item}}</button>
     </div>
     
   </div>
 
 </div>
+</div>
 
 <div>
   <app-evolution-chain [urlEvolution]="descriptionPokemon.urlEvolutionChain.toString()"></app-evolution-chain>
 </div>
+
 

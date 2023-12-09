@@ -6,6 +6,7 @@ import { Description } from '../interface/description';
 import { Damages } from '../interface/damages';
 import { Observable, delay, forkJoin, map, of, pipe, tap } from 'rxjs';
 import { TableDamages } from '../interface/tableDamages';
+import { TraduccionService } from '../traduccion.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -13,6 +14,11 @@ import { TableDamages } from '../interface/tableDamages';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit{
+
+  modoOscuro: boolean = false;
+  cambiarModo() {
+    this.modoOscuro = !this.modoOscuro;
+  }
 
   numberList: number = 0;
   type1: number = 1;
@@ -58,7 +64,14 @@ export class PokemonComponent implements OnInit{
 
   idTypes: number[] = []
 
-  constructor(private pokemonBasicService: PokemonBasicService, private route: ActivatedRoute) { }
+  constructor(private pokemonBasicService: PokemonBasicService, private route: ActivatedRoute,private traduccionService: TraduccionService) { }
+
+  obtenerIdiomaActual(): 'es' | 'en' {
+    return this.traduccionService.obtenerIdiomaActual();
+  }
+  cambiarIdioma(idioma: 'es' | 'en') {
+    this.traduccionService.cambiarIdioma(idioma);
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

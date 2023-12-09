@@ -11,6 +11,12 @@ import { Pokemon } from '../interface/pokemon';
 })
 export class PokemonListComponent implements OnInit{
 
+  modoOscuro: boolean = false;
+
+  cambiarModo() {
+    this.modoOscuro = !this.modoOscuro;
+  }
+
   // Array de tipo Pokemon que contiene la informacion basica para la lista pokemon
   data: Pokemon[] = [];
   botonPulsado: string = "0";
