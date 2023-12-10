@@ -6,9 +6,9 @@ import { PokemonInfo } from './interface/pokemonInfo';
 import { Description } from './interface/description';
 import { Damages } from './interface/damages';
 import { EvolutionChain } from './interface/evolutionChain';
-import { Chain } from '@angular/compiler';
-import { EvolutionDetails } from './interface/evolutionDetails';
 import { Img } from './interface/img';
+import { Moves } from './interface/moves';
+import { MovesDetails } from './interface/moveDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -62,15 +62,6 @@ export class PokemonBasicService {
       }));
   }
 
-  public getImg(name: string): Observable<Img>{
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-      .pipe(map((response: any) => {
-        return {
-          img: response.sprites.other['official-artwork'].front_default,
-        };
-      }));
-  }
-
   //  METODO QUE DEVUELVE LA DESCRIPICION DEL POKEMON
   public getDescription(id: number): Observable<Description> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
@@ -118,63 +109,29 @@ export class PokemonBasicService {
     }));
   }
 
-  //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR
-  /*
-  public getEvolutionDetail(url: string): Observable<EvolutionDetails> {
-    return this.http.get(url)
-    .pipe(map((response: any) => {
-      return {
-        gender: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.gender)), 
-        held_item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.held_item)), 
-        item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((date2: any) => date2.item)), 
-        known_move: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move)), 
-        known_move_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move_type)), 
-        location: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.location)), 
-        min_affection: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_affection)), 
-        min_beauty: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_beauty)), 
-        min_happiness: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_happiness)), 
-        min_level: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_level)), 
-        needs_overworld_rain: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.needs_overworld_rain)), 
-        party_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_species)), 
-        party_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_type)), 
-        relative_physical_stats: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.relative_physical_stats)), 
-        time_of_day: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.time_of_day)), 
-        trade_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trade_species)), 
-        turn_upside_down: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.turn_upside_down)),
-        trigger: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trigger.name)),
-      };
-    }));
+  //  METODO QUE DEVUELVE LOS MOVIMIENTOS
+  public getMoves(id: number): Observable<Moves> {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+      .pipe(map((response: any) => {
+        return {
+          move: response.moves,
+          url: response.moves.map((item: any) => item.move.url),
+          detail: response.moves.map((item: any) => item.version_group_details)
+        }
+      }))
   }
-  */
 
-  //  METODO QUE DEVUELVE LOS DETALLES PARA EVULUCIONAR A 3º EVO
-  /*
-  public getEvolutionDetail2(url: string): Observable<EvolutionDetails> {
-    return this.http.get(url)
-    .pipe(map((response: any) => {
-      return {
-        gender: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.gender)), 
-        held_item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.held_item)), 
-        item: response.chain.evolves_to.map((data: any) => data.evolution_details.map((name:any) => name.item)), 
-        known_move: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move)), 
-        known_move_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.known_move_type)), 
-        location: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.location)), 
-        min_affection: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_affection)), 
-        min_beauty: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_beauty)), 
-        min_happiness: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.min_happiness)), 
-        min_level: response.chain.evolves_to.map((data: any) => data.evolves_to.map((data2: any) => data2.evolution_details.map((level: any) => level.min_level))), 
-        needs_overworld_rain: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.needs_overworld_rain)), 
-        party_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_species)), 
-        party_type: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.party_type)), 
-        relative_physical_stats: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.relative_physical_stats)), 
-        time_of_day: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.time_of_day)), 
-        trade_species: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.trade_species)), 
-        turn_upside_down: response.chain.evolves_to.map((data: any) => data.evolution_details.map((data2: any) => data2.turn_upside_down)),
-        trigger: response.chain.evolves_to.map((data: any) => data.evolves_to.map((data2: any) => data2.evolution_details.map((trigger: any) => trigger.trigger.name))),
-      };
-    }));
+  //  METODO QUE DEVUELVE LOS DETALLES DE LOS MOVIMIENTOS
+  public getMovesDetails(url: string): Observable<MovesDetails> {
+    return this.http.get(`${url}`)
+      .pipe(map((response: any) => {
+        return {
+          category: response.damage_class.map((item: any) => item.name),
+          power: response.power,
+          accuracy: response.accuracy,
+        }
+      }))
   }
-  */
 
   //  ASIGNACION DE GENERACION (NO MUY UTIL)
   public assignGeneration(generation: any): any {
@@ -188,6 +145,16 @@ export class PokemonBasicService {
       generation = "Four Generation"
     }
     return generation;
+  }
+
+  //  ESTOY PROBANDOLO (NO FUNCIONA)
+  public getImg(name: string): Observable<Img>{
+    return this.http.get(`http://pokeapi.co/api/v2/pokemon/${name}/`)
+      .pipe(map((response: any) => {
+        return {
+          img: response.sprites.other['official-artwork'].front_default,
+        };
+      }));
   }
 
   // LA SENTENCIA DE ABAJO SE ENCARGA DE MOSTRAR LOS TIPOS EN EL BUSCADOR

@@ -63,7 +63,6 @@ export class PokemonComponent implements OnInit{
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.numberList = params['id'];
-
     });
 
     forkJoin([
@@ -80,7 +79,6 @@ export class PokemonComponent implements OnInit{
               this.setTableDamage(this.type1, 1).subscribe(
                 (tableDamages: any) => {
                   this.tableDamages = tableDamages as Damages;
-                  console.log(this.tableDamages);
                 }
               );
             }
@@ -92,9 +90,7 @@ export class PokemonComponent implements OnInit{
               this.setTableDamage(this.type2, 2).subscribe(
                 (tableDamages: any) => {
                   this.tableDamages2 = tableDamages as Damages;
-                  console.log(this.tableDamages2);
                   this.joinTableDamage()
-                  console.log(this.tableDamagesFull)
                 }
               );
             }
@@ -106,9 +102,7 @@ export class PokemonComponent implements OnInit{
               this.setTableDamage(this.type1, 1).subscribe(
                 (tableDamages: any) => {
                   this.tableDamages = tableDamages as Damages;
-                  console.log(this.tableDamages);
                   this.joinTableDamage()
-                  console.log(this.tableDamagesFull)
                 });
             });
         }
