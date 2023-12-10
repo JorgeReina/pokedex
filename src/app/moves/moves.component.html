@@ -51,9 +51,9 @@
   </tr>
   <tr>
       <td>
-        <div *ngFor="let item of moves.move">
+        <div *ngFor="let item of moves.move; let i = index">
           <div *ngFor="let detail of item.version_group_details">
-            <div class="detailsMT" *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'black-white'">
+            <div class="detailsMT" *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'diamond-pearl'">
               {{item.move.name}}
             </div>
           </div>

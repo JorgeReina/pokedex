@@ -22,19 +22,6 @@ export class MovesComponent implements OnChanges, OnInit {
     move: [],
     url: [],
     detail: [],
-    
-  }
-
-  movesLevel: Moves = {
-    move: [],
-    url: [],
-    detail: [],
-  }
-
-  movesMT: Moves = {
-    move: [],
-    url: [],
-    detail: [],
   }
 
   constructor(private pokemonBasicService: PokemonBasicService, private route: ActivatedRoute) {}
