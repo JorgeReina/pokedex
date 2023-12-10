@@ -11,6 +11,7 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { FormsModule } from '@angular/forms';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
 import { TraducePipe } from './traduce.pipe';
+import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TraducePipe } from './traduce.pipe';
     PokemonComponent,
     EvolutionChainComponent,
     TraducePipe,
+    PaginaErrorComponent,
   ],
   imports: [
     BrowserModule,

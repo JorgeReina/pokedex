@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+img{
+  width: 100%;
+}
+.error-container {
+  position: relative;
+}
+
+.error-image {
+  width: 100%;
+  height: auto;
+}
+
+.error-text {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-100%);
+  text-align: center;
+  color: white;
+  font-size: 200%;
+}
+*{
+  font-family: 'Silkscreen';
+}

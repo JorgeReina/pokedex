@@ -30,19 +30,20 @@
       <p class="left-content">Height: {{infoPokemon.height / 10}} mts</p>
       <p class="left-content">Weight: {{infoPokemon.weight / 10}} Kg</p>
       <div>
+        <br><br><br>
         <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
       </div>
     </div>
   </div>
-  <!--<div class="stats">
-    <div class="barra-hp" [ngStyle]="{'--hp-value': infoPokemon.nameStats[0]}"></div>
-    <div class="barra-ataque" [ngStyle]="{'--ataque-value': infoPokemon.baseStats}"></div>
-  </div>-->
   <div class="stats">
-    <p class="marginleft">HABILITIES: <br></p>
-    <div class="left-content" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
-      <p >{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
+    <p>HABILITIES:</p>
+    <br>
+    <div class="bar-container" *ngFor="let stats of infoPokemon.baseStats; let i = index;">
+      <p>{{ infoPokemon.nameStats[i] }}: {{ stats }}</p>
+      <div class="bar" [ngStyle]="{'width': (stats / 255 * 100) + '%'}"></div>
+      <br>
     </div>
+  </div>
   
   <div class="types">
     
