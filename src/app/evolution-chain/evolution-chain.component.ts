@@ -31,7 +31,7 @@ export class EvolutionChainComponent implements OnChanges{
     ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ( changes['urlEvolution']) {
+    if ( this.urlEvolution) {
       this.setChainEvolution()
     }
   }
