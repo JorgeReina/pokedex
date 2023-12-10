@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
 import { TraducePipe } from './traduce.pipe';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { MovesComponent } from './moves/moves.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     EvolutionChainComponent,
     TraducePipe,
     PaginaErrorComponent,
+    MovesComponent,
   ],
   imports: [
     BrowserModule,

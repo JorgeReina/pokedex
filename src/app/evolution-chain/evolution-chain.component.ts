@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { EvolutionChain } from '../interface/evolutionChain';
 import { PokemonBasicService } from '../pokemonBasic.service';
 import { Router } from '@angular/router';
@@ -12,11 +12,13 @@ import { Img } from '../interface/img';
 })
 export class EvolutionChainComponent implements OnChanges{
 
-  numberList: number = 1;
-
   @Input()
   urlEvolution = "";
 
+  @Input()
+  name: string = "";
+  name2: string[] = [];
+  name3: string[] = [];
   
   evolutionChain: EvolutionChain = {
     name1: "",
@@ -34,12 +36,8 @@ export class EvolutionChainComponent implements OnChanges{
     ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ( changes['urlEvolution'] && !changes['urlEvolution'].previousValue) {
+    if ( changes['urlEvolution']) {
       this.setChainEvolution()
-    }
-    if (changes['evolutionChain.name1'] && !changes['evolutionChain.name1'].previousValue) {
-      console.log(this.setImg(this.evolutionChain.name1));
-      
     }
   }
 
@@ -50,6 +48,7 @@ export class EvolutionChainComponent implements OnChanges{
     );
   }
 
+  //  MOSTRAR IMG
   setImg(name: string) {
     this.pokemonBasicService.getImg(name).subscribe(
       data => this.imgEvo1 = data,
