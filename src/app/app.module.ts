@@ -13,6 +13,7 @@ import { EvolutionChainComponent } from './evolution-chain/evolution-chain.compo
 import { TraducePipe } from './traduce.pipe';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { MovesComponent } from './moves/moves.component';
+import { MoveDetailsComponent } from './move-details/move-details.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MovesComponent } from './moves/moves.component';
     TraducePipe,
     PaginaErrorComponent,
     MovesComponent,
+    MoveDetailsComponent,
   ],
   imports: [
     BrowserModule,

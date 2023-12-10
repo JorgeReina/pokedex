@@ -37,12 +37,6 @@ export class MovesComponent implements OnChanges, OnInit {
     detail: [],
   }
 
-  moveDetail: MovesDetails = {
-    category: [],
-    power: [],
-    accuracy: [],
-  }
-
   constructor(private pokemonBasicService: PokemonBasicService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -54,8 +48,6 @@ export class MovesComponent implements OnChanges, OnInit {
   ngOnChanges(changes: SimpleChanges) {
     if ( changes['id'] && !changes['id'].previousValue) {
       this.setMoves(this.numberList)
-      this.setMovesLevel()
-      this.setMoveDetail(this.moves.url.toString())
     }
   }
 
@@ -63,16 +55,6 @@ export class MovesComponent implements OnChanges, OnInit {
     this.pokemonBasicService.getMoves(n).subscribe(
       data => this.moves = data
     );
-  }
-
-  setMoveDetail(url: string) {
-    this.pokemonBasicService.getMovesDetails(url).subscribe(
-      data => this.moveDetail = data
-    )
-  }
-
-  setMovesLevel() {
-    
   }
 
 }

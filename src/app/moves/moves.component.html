@@ -5,29 +5,27 @@
 <table class="table">
   <tr>
     <th>Name</th>
-    <th>Category</th>
-    <th>Accuracy</th>
-    <th>Power</th>
+    <th>Acurrency / Power / Category / Type</th>
     <th>Level</th>
-    <th>Type</th>
   </tr>
   <tr>
       <td>
         <div *ngFor="let item of moves.move; let i = index">
           <div *ngFor="let detail of item.version_group_details">
             <div *ngIf="detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'diamond-pearl'">
-              {{item.move.name}} {{moves.url[i]}}
+              {{item.move.name}}
             </div>
           </div>
         </div>
       </td>
       <td>
-        {{moveDetail.category |json}}
-      </td>
-      <td>
-      </td>
-      <td>
-
+        <div *ngFor="let item of moves.move; let i = index">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'level-up' && detail.version_group.name === 'diamond-pearl'">
+              <app-move-details [url]="moves.url[i]" ></app-move-details>
+            </div>
+          </div>
+        </div>
       </td>
       <td>
         <div *ngFor="let item of moves.move">
@@ -38,43 +36,37 @@
           </div>
         </div>
       </td>
-      <td>
-
-      </td>
   </tr>
 </table>
+
+
+
 
 <h2>Moves Table by MT/MO</h2>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Category</th>
-    <th>Accuracy</th>
-    <th>Power</th>
-    <th>Type</th>
+    <th>Acurrency / Power / Category / Type</th>
   </tr>
   <tr>
       <td>
         <div *ngFor="let item of moves.move">
           <div *ngFor="let detail of item.version_group_details">
             <div *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'black-white'">
-              {{item.move.name}} {{item.move.url}}
+              {{item.move.name}}
             </div>
           </div>
         </div>
       </td>
       <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
+        <div *ngFor="let item of moves.move; let i = index">
+          <div *ngFor="let detail of item.version_group_details">
+            <div *ngIf="detail.move_learn_method.name === 'machine' && detail.version_group.name === 'diamond-pearl'">
+              <app-move-details [url]="moves.url[i]" ></app-move-details>
+            </div>
+          </div>
+        </div>
       </td>
   </tr>
 </table>

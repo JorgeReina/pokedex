@@ -126,9 +126,10 @@ export class PokemonBasicService {
     return this.http.get(`${url}`)
       .pipe(map((response: any) => {
         return {
-          category: response.damage_class.map((item: any) => item.name),
+          category: response.damage_class.name,
           power: response.power,
           accuracy: response.accuracy,
+          type: response.type.name,
         }
       }))
   }
