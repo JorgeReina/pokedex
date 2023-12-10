@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +15,7 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { MovesComponent } from './moves/moves.component';
 import { MoveDetailsComponent } from './move-details/move-details.component';
 import { ImgEvoChainComponent } from './img-evo-chain/img-evo-chain.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -35,7 +36,13 @@ import { ImgEvoChainComponent } from './img-evo-chain/img-evo-chain.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
