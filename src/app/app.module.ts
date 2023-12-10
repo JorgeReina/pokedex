@@ -14,6 +14,7 @@ import { TraducePipe } from './traduce.pipe';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { MovesComponent } from './moves/moves.component';
 import { MoveDetailsComponent } from './move-details/move-details.component';
+import { ImgEvoChainComponent } from './img-evo-chain/img-evo-chain.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MoveDetailsComponent } from './move-details/move-details.component';
     PaginaErrorComponent,
     MovesComponent,
     MoveDetailsComponent,
+    ImgEvoChainComponent,
   ],
   imports: [
     BrowserModule,

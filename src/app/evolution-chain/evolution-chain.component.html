@@ -2,7 +2,7 @@
 <div class="pokemon-list-container" >
   <div class="pokemon-container" (click)="navigateToPokemon(evolutionChain.name1)">
     <p>{{evolutionChain.name1 | titlecase}}</p>
-    <img src="" alt="">
+    <app-img-evo-chain [name]="evolutionChain.name1"></app-img-evo-chain>
   </div>
   
   <div class="pokemon-container" *ngFor="let item of evolutionChain.chainEvolution"  (click)="navigateToPokemon(item.species.name)">
@@ -30,6 +30,7 @@
     <div>⬇️</div>
     <div>
       <p>{{item.species.name | titlecase}}</p>
+      <app-img-evo-chain [name]="item.species.name"></app-img-evo-chain>
       </div>
   </div>
   
@@ -60,6 +61,7 @@
           </div>
         <div>⬇️</div>
         <p>{{evo3.species.name}}</p>
+        <app-img-evo-chain [name]="evo3.species.name"></app-img-evo-chain>
         </div>
       </div>
     

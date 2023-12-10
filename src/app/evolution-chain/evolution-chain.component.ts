@@ -25,11 +25,6 @@ export class EvolutionChainComponent implements OnChanges{
     chainEvolution: [],
   }
 
-  imgEvo1: Img = {
-    img: "",
-  }
-
-
   constructor(
     private pokemonBasicService: PokemonBasicService,
     private router: Router
@@ -45,13 +40,6 @@ export class EvolutionChainComponent implements OnChanges{
   setChainEvolution() {
     this.pokemonBasicService.getChainEvolution(this.urlEvolution).subscribe(
       data => this.evolutionChain = data
-    );
-  }
-
-  //  MOSTRAR IMG
-  setImg(name: string) {
-    this.pokemonBasicService.getImg(name).subscribe(
-      data => this.imgEvo1 = data,
     );
   }
 
