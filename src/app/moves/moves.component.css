@@ -14,3 +14,16 @@ td{
 h2{
   text-align: center;
 }
+.details{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.detailsLevel{
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.detailsMT{
+  margin-top: 7%;
+  margin-bottom: 7%;
+}

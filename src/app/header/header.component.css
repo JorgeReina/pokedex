@@ -9,6 +9,10 @@
   align-items: center;
   margin-bottom: 2%;
 }
+img{
+  width: 100%;
+  height: 100%;
+}
 
 h1{
   font-family: Pokemon;
@@ -24,9 +28,7 @@ h1{
   animation: rotation 2s infinite linear;
 }
 
-.backpag:hover{
-  transform: rotate(-10deg);
-}
+
 
 /* Estilos de Buscador */
 
