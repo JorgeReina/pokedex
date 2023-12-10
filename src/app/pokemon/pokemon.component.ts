@@ -222,7 +222,7 @@ export class PokemonComponent implements OnInit{
 
   //  OBTINE LA IMAGEN DEL TIPO EN LA CARTA
   getImagePath(type: string): string {
-    return `/assets/images/types/${type.toLowerCase()}.png`;
+    return `assets/images/types/${type.toLowerCase()}.png`;
   }
 
 }
