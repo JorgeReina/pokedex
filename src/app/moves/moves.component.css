@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+*{
+  font-family: 'Pixelify Sans';
+}
+table{
+  border-radius: 18px;
+  margin: auto;
+  background-color: rgb(115, 115, 203);
+}
+td{
+  background-color: rgb(164, 185, 232);
+  border-radius: 9px;
+}
+h2{
+  text-align: center;
+}

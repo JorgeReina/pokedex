@@ -5,7 +5,6 @@
 <button (click)="cambiarIdioma('en')">English</button>-->
 
   <button class="oscuro" (click)="cambiarModo()"><img class="sizeBombilla" src="/assets/images/bombilla.png"></button>
-
 <div class="grid-container">
   <div [attr.type]="infoPokemon.types[0]" class="pokemon-container">
     <br>
@@ -32,9 +31,11 @@
       <div>
         <br><br><br>
         <p [innerHTML]="formatDescription(descriptionPokemon.description.toString())"></p>
+        <br><br>
       </div>
     </div>
   </div>
+  
   <div class="stats">
     <p>HABILITIES:</p>
     <br>
@@ -44,7 +45,8 @@
       <br>
     </div>
   </div>
-  
+</div>
+  <br><br>
   <div class="types">
     
     <div class="filter" *ngIf="infoPokemon.types.length > 0"> <p> TYPES TABLE </p> 
@@ -72,8 +74,7 @@
     
   </div>
 
-</div>
-</div>
+
 
 <div>
   <app-evolution-chain [urlEvolution]="descriptionPokemon.urlEvolutionChain.toString()"></app-evolution-chain>
@@ -81,4 +82,5 @@
 
 <div>
   <app-moves [id]="infoPokemon.id"></app-moves>
+</div>
 </div>
