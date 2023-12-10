@@ -148,9 +148,9 @@ export class PokemonBasicService {
     return generation;
   }
 
-  //  ESTOY PROBANDOLO (NO FUNCIONA)
+  //  OBTIENE LAS IMAGENES PARA LA CADENA EVOLUTIVA
   public getImg(name: string): Observable<Img>{
-    return this.http.get(`http://pokeapi.co/api/v2/pokemon/${name}/`)
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
       .pipe(map((response: any) => {
         return {
           img: response.sprites.other['official-artwork'].front_default,
